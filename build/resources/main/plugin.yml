@@ -1,7 +1,0 @@
-name: pylon-base
-version: MODIFIED
-main: io.github.pylonmc.template.MyAddon
-load: STARTUP
-depend:
-  - PylonCore
-api-version: "1.21"
