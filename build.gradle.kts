@@ -20,10 +20,12 @@ repositories {
 }
 
 val coreVersion = project.properties["pylon-core.version"] as String
+val baseVersion = project.properties["pylon-base.version"] as String
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("io.github.pylonmc:pylon-core:$coreVersion")
+    compileOnly("io.github.pylonmc:pylon-base:$baseVersion")
 }
 
 idea {
@@ -60,6 +62,9 @@ bukkit {
 tasks.runServer {
     downloadPlugins {
         github("pylonmc", "pylon-core", coreVersion, "pylon-core-$coreVersion.jar")
+    }
+    downloadPlugins {
+        github("pylonmc", "pylon-base", coreVersion, "pylon-base-$coreVersion.jar")
     }
     maxHeapSize = "4G"
     minecraftVersion("1.21.4")
