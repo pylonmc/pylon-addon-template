@@ -1,12 +1,12 @@
 package com.balugaq.constructionwand.core.listeners;
 
+import com.balugaq.constructionwand.api.enums.Interaction;
 import com.balugaq.constructionwand.api.items.BreakingWand;
 import com.balugaq.constructionwand.api.events.PrepareBreakingEvent;
 import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
 import com.balugaq.constructionwand.utils.Debug;
+import com.balugaq.constructionwand.utils.PermissionUtil;
 import com.balugaq.constructionwand.utils.WandUtil;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -31,7 +31,6 @@ import java.util.Set;
 import java.util.UUID;
 
 public class PrepareBreakingListener implements Listener {
-    private static final boolean DEBUG = ConstructionWandPlugin.getInstance().getConfigManager().isDebug();
     private static final boolean DISPLAY_PROJECTION = ConstructionWandPlugin.getInstance().getConfigManager().isDisplayProjection();
 
     private static final ModelCuboid border = new ModelCuboid()
@@ -54,7 +53,7 @@ public class PrepareBreakingListener implements Listener {
     }
 
     private void showBreakingBlocksFor(@NotNull Player player, @NotNull Block lookingAtBlock, int limitBlocks, @NotNull BreakingWand breakingWand) {
-        if (!player.isOp() && !Slimefun.getProtectionManager().hasPermission(player, lookingAtBlock, Interaction.BREAK_BLOCK)) {
+        if (!player.isOp() && !PermissionUtil.hasPermission(player, lookingAtBlock, Interaction.BREAK_BLOCK)) {
             return;
         }
 

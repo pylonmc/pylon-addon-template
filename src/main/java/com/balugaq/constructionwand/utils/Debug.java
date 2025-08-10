@@ -1,6 +1,7 @@
 package com.balugaq.constructionwand.utils;
 
 import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
+import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -8,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("unused")
+@UtilityClass
 public class Debug {
     private static final JavaPlugin plugin = ConstructionWandPlugin.getInstance();
     private static final String debugPrefix = "[Debug] ";

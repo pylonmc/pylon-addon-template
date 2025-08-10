@@ -7,6 +7,7 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.io.File;
@@ -19,7 +20,7 @@ import java.io.Reader;
 public class ConfigManager implements IManager {
     private final JavaPlugin plugin;
 
-    public ConfigManager(JavaPlugin plugin) {
+    public ConfigManager(@NotNull JavaPlugin plugin) {
         this.plugin = plugin;
     }
 
@@ -73,6 +74,7 @@ public class ConfigManager implements IManager {
         }
     }
 
+    // todo: finish it when pylon's build station ready
     public boolean isAutoUpdate() {
         return plugin.getConfig().getBoolean("auto-update");
     }

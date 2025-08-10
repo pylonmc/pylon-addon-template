@@ -2,7 +2,7 @@ package com.balugaq.constructionwand.core.listeners;
 
 import com.balugaq.constructionwand.api.items.Wand;
 import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.pylonmc.pylon.core.item.PylonItem;
 import org.bukkit.Axis;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -23,9 +23,9 @@ public class WandModeSwitchListener implements Listener {
     public void onWandModeSwitch(@NotNull PlayerSwapHandItemsEvent event) {
         Player player = event.getPlayer();
         ItemStack itemInOffHand = event.getOffHandItem();
-        SlimefunItem staffLike = SlimefunItem.getByItem(itemInOffHand);
-        if (staffLike instanceof Wand staff) {
-            Axis axis = staff.getAxis(itemInOffHand);
+        PylonItem wandLike = PylonItem.fromStack(itemInOffHand);
+        if (wandLike instanceof Wand wand) {
+            Axis axis = wand.getAxis(itemInOffHand);
             Axis nextAxis;
             if (axis == null) {
                 nextAxis = Axis.X;
@@ -38,13 +38,13 @@ public class WandModeSwitchListener implements Listener {
                 }
             }
 
-            staff.setAxis(itemInOffHand, nextAxis);
+            wand.setAxis(itemInOffHand, nextAxis);
             ItemMeta meta = itemInOffHand.getItemMeta();
             if (meta == null) {
                 return;
             }
 
-            List<String> defaultLore = staffLike.getItem().getItemMeta().getLore();
+            List<String> defaultLore = wandLike.getStack().getItemMeta().getLore();
             if (defaultLore == null) {
                 return;
             }

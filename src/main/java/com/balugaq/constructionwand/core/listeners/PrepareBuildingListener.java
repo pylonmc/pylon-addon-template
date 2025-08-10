@@ -1,9 +1,11 @@
 package com.balugaq.constructionwand.core.listeners;
 
+import com.balugaq.constructionwand.api.enums.Interaction;
 import com.balugaq.constructionwand.api.items.BuildingWand;
 import com.balugaq.constructionwand.api.events.PrepareBuildingEvent;
 import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
 import com.balugaq.constructionwand.utils.Debug;
+import com.balugaq.constructionwand.utils.PermissionUtil;
 import com.balugaq.constructionwand.utils.WandUtil;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
@@ -24,7 +26,6 @@ import java.util.Set;
 import java.util.UUID;
 
 public class PrepareBuildingListener implements Listener {
-    private static final boolean DEBUG = ConstructionWandPlugin.getInstance().getConfigManager().isDebug();
     private static final boolean DISPLAY_PROJECTION = ConstructionWandPlugin.getInstance().getConfigManager().isDisplayProjection();
     private static final ModelCuboid blockBase = new ModelCuboid()
             .size(0.6F, 0.6F, 0.6F);
@@ -48,7 +49,7 @@ public class PrepareBuildingListener implements Listener {
     }
 
     private void showBuildingBlocksFor(@NotNull Player player, @NotNull Block lookingAtBlock, int limitBlocks, @NotNull BuildingWand buildingWand) {
-        if (!player.isOp() && !Slimefun.getProtectionManager().hasPermission(player, lookingAtBlock, Interaction.PLACE_BLOCK)) {
+        if (!player.isOp() && !PermissionUtil.hasPermission(player, lookingAtBlock, Interaction.PLACE_BLOCK)) {
             return;
         }
         Material material = lookingAtBlock.getType();

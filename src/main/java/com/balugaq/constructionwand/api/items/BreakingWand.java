@@ -1,6 +1,7 @@
 package com.balugaq.constructionwand.api.items;
 
 import com.balugaq.constructionwand.api.enums.Interaction;
+import com.balugaq.constructionwand.utils.PermissionUtil;
 import com.balugaq.constructionwand.utils.WandUtil;
 import io.github.pylonmc.pylon.core.item.PylonItem;
 import io.github.pylonmc.pylon.core.item.base.PylonInteractor;
@@ -121,7 +122,7 @@ public class BreakingWand extends PylonItem implements Wand, PylonInteractor {
 
         Set<BlockBreakEvent> locationsToBreak = new HashSet<>();
         for (Location location : result) {
-            if (!hasPermission(Interaction.BREAK_BLOCK)) {
+            if (!PermissionUtil.hasPermission(player, location, Interaction.BREAK_BLOCK)) {
                 continue;
             }
 

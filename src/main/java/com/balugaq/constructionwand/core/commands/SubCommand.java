@@ -11,13 +11,13 @@ import java.util.List;
 
 @Getter
 public abstract class SubCommand implements TabExecutor {
-    private final ConstructionWandPlugin plugin;
+    private final @NotNull ConstructionWandPlugin plugin;
 
-    public SubCommand(ConstructionWandPlugin plugin) {
+    public SubCommand(@NotNull ConstructionWandPlugin plugin) {
         this.plugin = plugin;
     }
 
-    public abstract String getIdentifier();
+    public abstract @NotNull String getIdentifier();
 
     public abstract @NotNull List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args);
 

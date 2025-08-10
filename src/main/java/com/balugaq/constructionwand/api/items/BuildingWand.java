@@ -1,6 +1,7 @@
 package com.balugaq.constructionwand.api.items;
 
 import com.balugaq.constructionwand.api.enums.Interaction;
+import com.balugaq.constructionwand.utils.PermissionUtil;
 import com.balugaq.constructionwand.utils.WandUtil;
 import com.balugaq.constructionwand.utils.WorldUtils;
 import com.destroystokyo.paper.MaterialTags;
@@ -54,7 +55,7 @@ public class BuildingWand extends PylonItem implements Wand, PylonInteractor {
         return lookingFacing;
     }
 
-    public void onUsedToRightClick(PlayerInteractEvent event) {
+    public void onUsedToRightClick(@NotNull PlayerInteractEvent event) {
         if (event.getHand() != EquipmentSlot.HAND) {
             return;
         }
@@ -130,7 +131,7 @@ public class BuildingWand extends PylonItem implements Wand, PylonInteractor {
                         block.getRelative(lookingFacing.getOppositeFace()),
                         itemInHand,
                         player,
-                        hasPermission(Interaction.PLACE_BLOCK),
+                        PermissionUtil.hasPermission(player, location, Interaction.PLACE_BLOCK),
                         EquipmentSlot.HAND
                 );
                 Bukkit.getPluginManager().callEvent(blockPlaceEvent);
@@ -175,26 +176,30 @@ public class BuildingWand extends PylonItem implements Wand, PylonInteractor {
                         || material.name().endsWith("_HEAD")
                         || material.name().endsWith("_LOG")
                         || material == Material.END_ROD
-                        || material == Material.LIGHTNING_ROD
-                        || material == Material.CHAIN
+                        || material.name().endsWith("LIGHTNING_ROD")
+                        || material.name().endsWith("CHAIN")
+                        || material.name().endsWith("_BARS")
                         || material == Material.DAYLIGHT_DETECTOR
                         || material == Material.ENDER_CHEST
                         || material == Material.NOTE_BLOCK
                         || material == Material.REDSTONE_ORE
-                        || material == Material.DEEPSLATE_REDSTONE_ORE;
+                        || material == Material.DEEPSLATE_REDSTONE_ORE
+                        || material.name().endsWith("_WALL");
     }
 
     public boolean isDisabledMaterial(@NotNull Material material) {
         if (// Items that can store items
                 MaterialTags.SHULKER_BOXES.isTagged(material)
-                        || material == Material.CHEST
-                        || material == Material.TRAPPED_CHEST
+                        || (material.name().endsWith("CHEST") && material != Material.ENDER_CHEST)
                         || material == Material.BARREL
                         || material == Material.LECTERN
                         || material == Material.DISPENSER
                         || material == Material.DROPPER
                         || material == Material.HOPPER
                         || material == Material.VAULT
+                        || material.name().endsWith("_SHELF")
+                        || material == Material.SUSPICIOUS_SAND
+                        || material == Material.SUSPICIOUS_GRAVEL
 
                         // Items that will take two blocks
                         || MaterialTags.BEDS.isTagged(material)
@@ -207,17 +212,21 @@ public class BuildingWand extends PylonItem implements Wand, PylonInteractor {
                         || material == Material.ROSE_BUSH
                         || material == Material.PEONY
                         || material == Material.PITCHER_PLANT
+                        || material == Material.PISTON_HEAD
+                        || material == Material.PISTON
+                        || material == Material.STICKY_PISTON
 
                         // Items that can place much same block in a location
-                        || material == Material.CANDLE
-                        || material.name().endsWith("_CANDLE")
+                        || material.name().endsWith("CANDLE")
                         || material == Material.SEA_PICKLE
+                        || material == Material.TURTLE_EGG
+                        || material == materialValueOf("FROGSPAWN")
 
-                        // Items that can be placed in a location
+                        // Items that can't be placed in a location
                         || material.isAir()
                         || !material.isBlock()
 
-                        // Items that is invalid
+                        // Items that is invalid / no permission
                         || material == Material.END_PORTAL_FRAME
                         || material == Material.BEDROCK
                         || material == Material.COMMAND_BLOCK
@@ -232,8 +241,23 @@ public class BuildingWand extends PylonItem implements Wand, PylonInteractor {
                         || material == Material.TRIAL_SPAWNER
                         || material == Material.CHORUS_FLOWER
                         || material == Material.NETHER_WART
+                        || material == Material.CAVE_VINES
+                        || material == Material.CAVE_VINES_PLANT
+                        || material == Material.FROSTED_ICE
+                        || material == Material.WATER_CAULDRON
+                        || material == Material.LAVA_CAULDRON
+                        || material == Material.POWDER_SNOW_CAULDRON
+                        || material.name().startsWith("POTTED_")
+                        || material == Material.FIRE
+                        || material == Material.SOUL_FIRE
+                        || material == Material.END_PORTAL
+                        || material == Material.END_GATEWAY
+                        || material == Material.NETHER_PORTAL
+                        || material == Material.BUBBLE_COLUMN
+                        || material == Material.POWDER_SNOW
+                        || material == Material.MUSHROOM_STEM
 
-                        // Items that has gui
+                        // Items that has inventory
                         || material == Material.CRAFTING_TABLE
                         || material == Material.STONECUTTER
                         || material == Material.CARTOGRAPHY_TABLE
@@ -265,54 +289,41 @@ public class BuildingWand extends PylonItem implements Wand, PylonInteractor {
                         // Items that have different types
                         || material == Material.PLAYER_HEAD
                         || material == Material.PLAYER_WALL_HEAD
-                        || material == Material.CAKE
-                        || material.name().endsWith("_CAKE")
+                        || material.name().endsWith("CAKE")
+                        | material.name().endsWith("_BUTTON")
+                        || material == Material.TRIPWIRE
+                        || material == Material.CREAKING_HEART
+
+                        // Needs side block
                         || material == Material.POINTED_DRIPSTONE
                         || material.name().endsWith("_BANNER")
-
-                        // Haven't been divided into categories yet
                         || material == Material.LEVER
-                        || material == Material.TORCH
-                        || material == Material.REDSTONE_TORCH
-                        || material == Material.SOUL_TORCH
-                        || material == Material.LANTERN
-                        || material == Material.SOUL_LANTERN
+                        || material.name().endsWith("TORCH")
+                        || material.name().endsWith("LANTERN")
                         || material == Material.LADDER
                         || material == Material.REPEATER
                         || material == Material.COMPARATOR
                         || material == Material.VINE
                         || material == Material.GLOW_LICHEN
-                        || material == Material.CAVE_VINES
-                        || material == Material.CAVE_VINES_PLANT
                         || material == Material.SCULK_VEIN
-                        || material.name().endsWith("_BUTTON")
+                        || material == Material.BELL
+                        || material == Material.TRIPWIRE_HOOK
                         || material.name().endsWith("_RAIL")
                         || material.name().endsWith("_CORAL")
                         || material.name().endsWith("_CORAL_FAN")
                         || material.name().endsWith("_CARPET")
-                        || material == Material.TURTLE_EGG
-                        || material == materialValueOf("FROGSPAWN")
                         || material == Material.HANGING_ROOTS
-                        || material == Material.TRIPWIRE
-                        || material == Material.TRIPWIRE_HOOK
-                        || material == Material.DRAGON_EGG
-                        || material == Material.BELL
+                        || material == Material.REDSTONE_WIRE
                         || material == Material.BIG_DRIPLEAF_STEM
                         || material == Material.CHORUS_PLANT
-                        || material == Material.REDSTONE_WIRE
-                        || material.name().endsWith("_PRESSURE_PLATE")
-                        || material == Material.MOSS_CARPET
+                        || material == Material.DRAGON_EGG
                         || material == Material.SNOW
-                        || material == Material.FROSTED_ICE
-                        || material == Material.WATER_CAULDRON
-                        || material == Material.LAVA_CAULDRON
-                        || material == Material.POWDER_SNOW_CAULDRON
+                        || material.name().endsWith("_PRESSURE_PLATE")
                         || material == Material.SMALL_AMETHYST_BUD
                         || material == Material.MEDIUM_AMETHYST_BUD
                         || material == Material.LARGE_AMETHYST_BUD
                         || material == Material.AMETHYST_CLUSTER
                         || material.name().endsWith("_SAPLING")
-                        || material.name().startsWith("POTTED_")
                         || material == Material.AZALEA
                         || material == Material.FLOWERING_AZALEA
                         || material == Material.BROWN_MUSHROOM
@@ -361,29 +372,14 @@ public class BuildingWand extends PylonItem implements Wand, PylonInteractor {
                         || material == Material.KELP_PLANT
                         || material == Material.SEAGRASS
                         || material == Material.LILY_PAD
-                        || material == Material.CREAKING_HEART
                         || material == Material.OPEN_EYEBLOSSOM
                         || material == Material.CLOSED_EYEBLOSSOM
                         || material == Material.PALE_HANGING_MOSS
-                        || material == Material.RESIN_CLUMP
-                        || material == Material.FIRE
-                        || material == Material.SOUL_FIRE
-                        || material == Material.END_PORTAL
-                        || material == Material.END_GATEWAY
-                        || material == Material.NETHER_PORTAL
-                        || material == Material.MUSHROOM_STEM
-                        || material == Material.PISTON_HEAD
-                        || material == Material.SUSPICIOUS_SAND
-                        || material == Material.SUSPICIOUS_GRAVEL
-                        || material == Material.BUBBLE_COLUMN
-                        || material == Material.POWDER_SNOW
-                        || material == Material.PISTON
-                        || material == Material.STICKY_PISTON
-                        || material == Material.CONDUIT
                         || material == Material.MANGROVE_PROPAGULE
                         || material == materialValueOf("WILDFLOWERS")
                         || material == materialValueOf("LEAF_LITTER")
                         || material.name().endsWith("_WALL_FAN")
+                        || material == Material.RESIN_CLUMP
         ) {
             return true;
         }
@@ -392,7 +388,7 @@ public class BuildingWand extends PylonItem implements Wand, PylonInteractor {
     }
 
     @NotNull
-    private Material materialValueOf(String name) {
+    private Material materialValueOf(@NotNull String name) {
         try {
             return Material.valueOf(name);
         } catch (IllegalArgumentException | NullPointerException e) {

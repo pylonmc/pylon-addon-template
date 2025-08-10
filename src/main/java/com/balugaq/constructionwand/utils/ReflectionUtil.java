@@ -1,6 +1,6 @@
 package com.balugaq.constructionwand.utils;
 
-import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
+import com.balugaq.constructionwand.api.collections.Pair;
 import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

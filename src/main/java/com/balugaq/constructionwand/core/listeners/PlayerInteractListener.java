@@ -14,11 +14,11 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * When a player hold a staff in his main hand and hold a block in his offhand,
- * the event is cancelled to prevent the player from placing blocks with the staff.
+ * When a player hold a wand in his main hand and hold a block in his offhand,
+ * the event is cancelled to prevent the player from placing blocks with the wand.
  * I don't know why {@link BlockPlaceEvent} or {@link Block#setType(Material)}
  * will make player interact with main hand again.
- * So this listener is important for playing building staff.
+ * So this listener is important for playing building wand.
  *
  * @author balugaq
  */

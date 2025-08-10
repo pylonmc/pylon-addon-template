@@ -20,7 +20,7 @@ public class CommandManager implements TabExecutor, IManager {
     private final ConstructionWandPlugin plugin;
     private final List<SubCommand> subCommands = new ArrayList<>();
 
-    public CommandManager(ConstructionWandPlugin plugin) {
+    public CommandManager(@NotNull ConstructionWandPlugin plugin) {
         this.plugin = plugin;
     }
 

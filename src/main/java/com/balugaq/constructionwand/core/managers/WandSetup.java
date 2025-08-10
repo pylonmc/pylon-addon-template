@@ -3,11 +3,9 @@ package com.balugaq.constructionwand.core.managers;
 import com.balugaq.constructionwand.api.interfaces.IManager;
 import com.balugaq.constructionwand.api.items.BreakingWand;
 import com.balugaq.constructionwand.api.items.BuildingWand;
-import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
 import com.balugaq.constructionwand.utils.Keys;
 import io.github.pylonmc.pylon.core.content.guide.PylonGuide;
 import io.github.pylonmc.pylon.core.guide.pages.base.SimpleStaticGuidePage;
-import io.github.pylonmc.pylon.core.item.PylonItem;
 import io.github.pylonmc.pylon.core.item.builder.ItemStackBuilder;
 import io.github.pylonmc.pylon.core.recipe.RecipeType;
 import org.bukkit.Material;
@@ -19,11 +17,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class WandSetup implements IManager {
     public static SimpleStaticGuidePage MAIN;
-    private final ConstructionWandPlugin plugin;
-
-    public WandSetup(@NotNull ConstructionWandPlugin plugin) {
-        this.plugin = plugin;
-    }
     
     @Override
     public void setup() {

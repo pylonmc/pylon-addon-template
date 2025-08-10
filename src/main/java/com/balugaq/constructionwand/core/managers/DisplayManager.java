@@ -92,8 +92,8 @@ public class DisplayManager implements IManager {
                     lookingAt.put(uuid, location);
                     lookingFaces.put(uuid, originalFacing);
 
-                    SlimefunItem staffLike = SlimefunItem.getByItem(player.getInventory().getItemInMainHand());
-                    if (staffLike instanceof BuildingWand buildingWand) {
+                    SlimefunItem wandLike = SlimefunItem.getByItem(player.getInventory().getItemInMainHand());
+                    if (wandLike instanceof BuildingWand buildingWand) {
                         if (buildingWand.isDisabledIn(block.getWorld())) {
                             continue;
                         }
@@ -106,7 +106,7 @@ public class DisplayManager implements IManager {
                         Bukkit.getPluginManager().callEvent(event);
                     }
 
-                    if (staffLike instanceof BreakingWand breakingWand) {
+                    if (wandLike instanceof BreakingWand breakingWand) {
                         if (breakingWand.isDisabledIn(block.getWorld())) {
                             continue;
                         }

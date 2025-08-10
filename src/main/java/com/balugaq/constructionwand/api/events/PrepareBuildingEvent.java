@@ -12,10 +12,10 @@ import org.jetbrains.annotations.NotNull;
 @Getter
 public class PrepareBuildingEvent extends PlayerEvent {
     private static final HandlerList handlers = new HandlerList();
-    private final BuildingWand buildingWand;
-    private final Block lookingAtBlock;
+    private final @NotNull BuildingWand buildingWand;
+    private final @NotNull Block lookingAtBlock;
 
-    public PrepareBuildingEvent(@NotNull Player player, BuildingWand buildingWand, Block lookingAtBlock) {
+    public PrepareBuildingEvent(@NotNull Player player, @NotNull BuildingWand buildingWand, @NotNull Block lookingAtBlock) {
         super(player);
         this.buildingWand = buildingWand;
         this.lookingAtBlock = lookingAtBlock;

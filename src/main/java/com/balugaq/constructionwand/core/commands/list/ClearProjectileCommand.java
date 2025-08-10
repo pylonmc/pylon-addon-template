@@ -18,7 +18,7 @@ import java.util.UUID;
 public class ClearProjectileCommand extends SubCommand {
     public static final String IDENTIFIER = "clearProjectile";
 
-    public ClearProjectileCommand(ConstructionWandPlugin plugin) {
+    public ClearProjectileCommand(@NotNull ConstructionWandPlugin plugin) {
         super(plugin);
     }
 

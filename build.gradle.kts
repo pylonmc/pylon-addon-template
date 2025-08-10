@@ -16,7 +16,9 @@ repositories {
     maven("https://repo.papermc.io/repository/maven-public/") {
         name = "papermc"
     }
-    maven("https://repo.xenondevs.xyz/releases")
+    maven("https://repo.metamechanists.org/releases") {
+        name = "MetaMechanists Repository"
+    }
 }
 
 val coreVersion = project.properties["pylon-core.version"] as String
@@ -24,6 +26,7 @@ val coreVersion = project.properties["pylon-core.version"] as String
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("io.github.pylonmc:pylon-core:$coreVersion")
+    compileOnly("org.metamechanists:DisplayModelLib:2")
 }
 
 idea {

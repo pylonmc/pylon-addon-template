@@ -18,19 +18,19 @@ import java.util.Set;
 
 @SuppressWarnings({"unused"})
 public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
+    @Getter
     private static ConstructionWandPlugin instance;
     private @Getter CommandManager commandManager;
     private @Getter ConfigManager configManager;
     private @Getter DisplayManager displayManager;
     private @Getter ListenerManager listenerManager;
-    private @Getter WandSetup staffSetup;
+    private @Getter WandSetup wandSetup;
+    @Getter
     private String username;
+    @Getter
     private String repo;
+    @Getter
     private String branch;
-
-    public static ConstructionWandPlugin getInstance() {
-        return instance;
-    }
 
     @Override
     public void onLoad() {
@@ -62,8 +62,8 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
         commandManager.setup();
 
         Debug.log("Registering wands");
-        staffSetup = new WandSetup(this);
-        staffSetup.setup();
+        wandSetup = new WandSetup();
+        wandSetup.setup();
 
         Debug.log("ConstructionWand Done!");
     }
@@ -75,7 +75,7 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
 
     @Override
     public void onDisable() {
-        staffSetup.shutdown();
+        wandSetup.shutdown();
         displayManager.shutdown();
         listenerManager.shutdown();
         commandManager.shutdown();
@@ -95,7 +95,19 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
 
     @Override
     public @NotNull Set<Locale> getLanguages() {
-        return Set.of();
+        return Set.of(
+                Locale.ENGLISH,
+                Locale.of("enws"),
+                Locale.SIMPLIFIED_CHINESE,
+                Locale.TRADITIONAL_CHINESE,
+                Locale.KOREA,
+                Locale.FRANCE,
+                Locale.JAPAN,
+                Locale.CANADA,
+                Locale.CANADA_FRENCH,
+                Locale.GERMANY,
+                Locale.ITALIAN
+        );
     }
 
     @Override
