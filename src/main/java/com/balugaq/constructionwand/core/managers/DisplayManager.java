@@ -1,10 +1,10 @@
 package com.balugaq.constructionwand.core.managers;
 
 import com.balugaq.constructionwand.api.interfaces.IManager;
-import com.balugaq.constructionwand.api.items.BreakingStaff;
-import com.balugaq.constructionwand.api.items.BuildingStaff;
-import com.balugaq.constructionwand.api.objects.events.PrepareBreakingEvent;
-import com.balugaq.constructionwand.api.objects.events.PrepareBuildingEvent;
+import com.balugaq.constructionwand.api.items.BreakingWand;
+import com.balugaq.constructionwand.api.items.BuildingWand;
+import com.balugaq.constructionwand.api.events.PrepareBreakingEvent;
+import com.balugaq.constructionwand.api.events.PrepareBuildingEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -93,29 +93,29 @@ public class DisplayManager implements IManager {
                     lookingFaces.put(uuid, originalFacing);
 
                     SlimefunItem staffLike = SlimefunItem.getByItem(player.getInventory().getItemInMainHand());
-                    if (staffLike instanceof BuildingStaff buildingStaff) {
-                        if (buildingStaff.isDisabledIn(block.getWorld())) {
+                    if (staffLike instanceof BuildingWand buildingWand) {
+                        if (buildingWand.isDisabledIn(block.getWorld())) {
                             continue;
                         }
 
-                        if (buildingStaff.isDisabledMaterial(block.getType())) {
+                        if (buildingWand.isDisabledMaterial(block.getType())) {
                             continue;
                         }
 
-                        PrepareBuildingEvent event = new PrepareBuildingEvent(player, buildingStaff, block);
+                        PrepareBuildingEvent event = new PrepareBuildingEvent(player, buildingWand, block);
                         Bukkit.getPluginManager().callEvent(event);
                     }
 
-                    if (staffLike instanceof BreakingStaff breakingStaff) {
-                        if (breakingStaff.isDisabledIn(block.getWorld())) {
+                    if (staffLike instanceof BreakingWand breakingWand) {
+                        if (breakingWand.isDisabledIn(block.getWorld())) {
                             continue;
                         }
 
-                        if (breakingStaff.isDisabledMaterial(block.getType())) {
+                        if (breakingWand.isDisabledMaterial(block.getType())) {
                             continue;
                         }
 
-                        PrepareBreakingEvent event = new PrepareBreakingEvent(player, breakingStaff, block);
+                        PrepareBreakingEvent event = new PrepareBreakingEvent(player, breakingWand, block);
                         Bukkit.getPluginManager().callEvent(event);
                     }
                 }

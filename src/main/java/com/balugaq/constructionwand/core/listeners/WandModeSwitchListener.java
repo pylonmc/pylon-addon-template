@@ -1,6 +1,6 @@
 package com.balugaq.constructionwand.core.listeners;
 
-import com.balugaq.constructionwand.api.items.Staff;
+import com.balugaq.constructionwand.api.items.Wand;
 import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import org.bukkit.Axis;
@@ -18,13 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
-public class StaffModeSwitchListener implements Listener {
+public class WandModeSwitchListener implements Listener {
     @EventHandler
-    public void onStaffModeSwitch(@NotNull PlayerSwapHandItemsEvent event) {
+    public void onWandModeSwitch(@NotNull PlayerSwapHandItemsEvent event) {
         Player player = event.getPlayer();
         ItemStack itemInOffHand = event.getOffHandItem();
         SlimefunItem staffLike = SlimefunItem.getByItem(itemInOffHand);
-        if (staffLike instanceof Staff staff) {
+        if (staffLike instanceof Wand staff) {
             Axis axis = staff.getAxis(itemInOffHand);
             Axis nextAxis;
             if (axis == null) {

@@ -1,6 +1,6 @@
-package com.balugaq.constructionwand.api.objects.events;
+package com.balugaq.constructionwand.api.events;
 
-import com.balugaq.constructionwand.api.items.BuildingStaff;
+import com.balugaq.constructionwand.api.items.BuildingWand;
 import lombok.Getter;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -12,12 +12,12 @@ import org.jetbrains.annotations.NotNull;
 @Getter
 public class PrepareBuildingEvent extends PlayerEvent {
     private static final HandlerList handlers = new HandlerList();
-    private final BuildingStaff buildingStaff;
+    private final BuildingWand buildingWand;
     private final Block lookingAtBlock;
 
-    public PrepareBuildingEvent(@NotNull Player player, BuildingStaff buildingStaff, Block lookingAtBlock) {
+    public PrepareBuildingEvent(@NotNull Player player, BuildingWand buildingWand, Block lookingAtBlock) {
         super(player);
-        this.buildingStaff = buildingStaff;
+        this.buildingWand = buildingWand;
         this.lookingAtBlock = lookingAtBlock;
     }
 

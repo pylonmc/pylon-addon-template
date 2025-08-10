@@ -1,10 +1,10 @@
 package com.balugaq.constructionwand.core.listeners;
 
-import com.balugaq.constructionwand.api.items.BuildingStaff;
-import com.balugaq.constructionwand.api.objects.events.PrepareBuildingEvent;
+import com.balugaq.constructionwand.api.items.BuildingWand;
+import com.balugaq.constructionwand.api.events.PrepareBuildingEvent;
 import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
 import com.balugaq.constructionwand.utils.Debug;
-import com.balugaq.constructionwand.utils.StaffUtil;
+import com.balugaq.constructionwand.utils.WandUtil;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.GameMode;
@@ -40,14 +40,14 @@ public class PrepareBuildingListener implements Listener {
 
         Player player = event.getPlayer();
         Debug.debug("Preparing building blocks...");
-        BuildingStaff buildingStaff = event.getBuildingStaff();
-        if (buildingStaff.isOpOnly() && !player.isOp()) {
+        BuildingWand buildingWand = event.getBuildingWand();
+        if (buildingWand.isOpOnly() && !player.isOp()) {
             return;
         }
-        showBuildingBlocksFor(player, event.getLookingAtBlock(), buildingStaff.getLimitBlocks(), event.getBuildingStaff());
+        showBuildingBlocksFor(player, event.getLookingAtBlock(), buildingWand.getLimitBlocks(), event.getBuildingWand());
     }
 
-    private void showBuildingBlocksFor(@NotNull Player player, @NotNull Block lookingAtBlock, int limitBlocks, @NotNull BuildingStaff buildingStaff) {
+    private void showBuildingBlocksFor(@NotNull Player player, @NotNull Block lookingAtBlock, int limitBlocks, @NotNull BuildingWand buildingWand) {
         if (!player.isOp() && !Slimefun.getProtectionManager().hasPermission(player, lookingAtBlock, Interaction.PLACE_BLOCK)) {
             return;
         }
@@ -72,7 +72,7 @@ public class PrepareBuildingListener implements Listener {
             }
         }
 
-        Set<Location> showingBlocks = StaffUtil.getBuildingLocations(player, Math.min(limitBlocks, playerHas), buildingStaff.getAxis(player.getInventory().getItemInMainHand()), buildingStaff.isBlockStrict());
+        Set<Location> showingBlocks = WandUtil.getBuildingLocations(player, Math.min(limitBlocks, playerHas), buildingWand.getAxis(player.getInventory().getItemInMainHand()), buildingWand.isBlockStrict());
         DisplayGroup displayGroup = new DisplayGroup(player.getLocation(), 0.0F, 0.0F);
         for (Location location : showingBlocks) {
             String ls = location.getBlockX() + "_" + location.getBlockY() + "_" + location.getBlockZ();

@@ -1,16 +1,11 @@
 package com.balugaq.constructionwand.api.items;
 
-import com.balugaq.constructionwand.utils.StaffUtil;
+import com.balugaq.constructionwand.api.enums.Interaction;
+import com.balugaq.constructionwand.utils.WandUtil;
 import com.balugaq.constructionwand.utils.WorldUtils;
 import com.destroystokyo.paper.MaterialTags;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import io.github.pylonmc.pylon.core.item.PylonItem;
+import io.github.pylonmc.pylon.core.item.base.PylonInteractor;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.FluidCollisionMode;
@@ -21,6 +16,7 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -29,13 +25,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Getter
-public abstract class BuildingStaff extends SlimefunItem implements Staff {
+public class BuildingWand extends PylonItem implements Wand, PylonInteractor {
     private final int limitBlocks;
     private final boolean blockStrict;
     private final boolean opOnly;
 
-    public BuildingStaff(@NotNull ItemGroup itemGroup, @NotNull SlimefunItemStack item, @NotNull RecipeType recipeType, ItemStack @NotNull [] recipe, int limitBlocks, boolean blockStrict, boolean opOnly) {
-        super(itemGroup, item, recipeType, recipe);
+    public BuildingWand(@NotNull ItemStack stack, int limitBlocks, boolean blockStrict, boolean opOnly) {
+        super(stack);
         this.limitBlocks = limitBlocks;
         this.blockStrict = blockStrict;
         this.opOnly = opOnly;
@@ -58,120 +54,116 @@ public abstract class BuildingStaff extends SlimefunItem implements Staff {
         return lookingFacing;
     }
 
-    @Override
-    public void preRegister() {
-        super.preRegister();
-        addItemHandler((ItemUseHandler) playerRightClickEvent -> {
-            if (playerRightClickEvent.getInteractEvent().getHand() != EquipmentSlot.HAND) {
-                return;
-            }
+    public void onUsedToRightClick(PlayerInteractEvent event) {
+        if (event.getHand() != EquipmentSlot.HAND) {
+            return;
+        }
 
-            Player player = playerRightClickEvent.getPlayer();
-            if (opOnly && !player.isOp()) {
-                return;
-            }
+        Player player = event.getPlayer();
+        if (opOnly && !player.isOp()) {
+            return;
+        }
 
-            if (player.getGameMode() == GameMode.SPECTATOR) {
-                return;
-            }
+        if (player.getGameMode() == GameMode.SPECTATOR) {
+            return;
+        }
 
-            if (isDisabledIn(player.getWorld())) {
-                return;
-            }
+        if (isDisabled()) {
+            return;
+        }
 
-            Block lookingAtBlock = player.getTargetBlockExact(6, FluidCollisionMode.NEVER);
-            if (lookingAtBlock == null || lookingAtBlock.getType() == Material.AIR) {
-                return;
-            }
+        Block lookingAtBlock = player.getTargetBlockExact(6, FluidCollisionMode.NEVER);
+        if (lookingAtBlock == null || lookingAtBlock.getType() == Material.AIR) {
+            return;
+        }
 
-            Material material = lookingAtBlock.getType();
-            if (isDisabledMaterial(material)) {
-                return;
-            }
+        Material material = lookingAtBlock.getType();
+        if (isDisabledMaterial(material)) {
+            return;
+        }
 
-            int playerHas = 0;
-            if (player.getGameMode() == GameMode.CREATIVE) {
-                playerHas = 4096;
-            } else {
-                ItemStack target = new ItemStack(material, 1);
-                for (ItemStack itemStack : player.getInventory().getContents()) {
-                    if (itemStack == null || itemStack.getType() == Material.AIR) {
-                        continue;
-                    }
+        int playerHas = 0;
+        if (player.getGameMode() == GameMode.CREATIVE) {
+            playerHas = 4096;
+        } else {
+            ItemStack target = new ItemStack(material, 1);
+            for (ItemStack itemStack : player.getInventory().getContents()) {
+                if (itemStack == null || itemStack.getType() == Material.AIR) {
+                    continue;
+                }
 
-                    if (SlimefunUtils.isItemSimilar(itemStack, target, true, false)) {
-                        int count = itemStack.getAmount();
-                        playerHas += count;
-                    }
+                if (itemStack.isSimilar(target)) {
+                    int count = itemStack.getAmount();
+                    playerHas += count;
+                }
 
-                    if (playerHas >= limitBlocks) {
-                        break;
-                    }
+                if (playerHas >= limitBlocks) {
+                    break;
                 }
             }
+        }
 
-            if (playerHas <= 0) {
-                return;
-            }
+        if (playerHas <= 0) {
+            return;
+        }
 
-            BlockFace originalFacing = player.getTargetBlockFace(6, FluidCollisionMode.NEVER);
-            if (originalFacing == null) {
-                return;
-            }
+        BlockFace originalFacing = player.getTargetBlockFace(6, FluidCollisionMode.NEVER);
+        if (originalFacing == null) {
+            return;
+        }
 
-            BlockFace lookingFacing = getBlockFaceAsCartesian(originalFacing);
+        BlockFace lookingFacing = getBlockFaceAsCartesian(originalFacing);
 
-            ItemStack itemInHand = new ItemStack(material, 1);
-            ItemStack item = player.getInventory().getItemInMainHand();
-            Set<Location> buildingLocations = StaffUtil.getBuildingLocations(player, Math.min(limitBlocks, playerHas), getAxis(item), blockStrict);
+        ItemStack itemInHand = new ItemStack(material, 1);
+        ItemStack item = player.getInventory().getItemInMainHand();
+        Set<Location> buildingLocations = WandUtil.getBuildingLocations(player, Math.min(limitBlocks, playerHas), getAxis(item), blockStrict);
 
-            int consumed = 0;
+        int consumed = 0;
 
-            Set<Block> blocks = new HashSet<>();
-            for (Location location : buildingLocations) {
-                Block block = location.getBlock();
-                if (block.getType() == Material.AIR || block.getType() == Material.WATER || block.getType() == Material.LAVA) {
-                    BlockPlaceEvent blockPlaceEvent = new BlockPlaceEvent(
-                            block,
-                            block.getState(),
-                            block.getRelative(lookingFacing.getOppositeFace()),
-                            itemInHand,
-                            player,
-                            Slimefun.getProtectionManager().hasPermission(player, block, Interaction.PLACE_BLOCK),
-                            EquipmentSlot.HAND
-                    );
-                    Bukkit.getPluginManager().callEvent(blockPlaceEvent);
-                    if (!blockPlaceEvent.isCancelled()) {
-                        blocks.add(block);
-                        consumed += 1;
-                    }
+        Set<Block> blocks = new HashSet<>();
+        for (Location location : buildingLocations) {
+            Block block = location.getBlock();
+            if (block.getType() == Material.AIR || block.getType() == Material.WATER || block.getType() == Material.LAVA) {
+                BlockPlaceEvent blockPlaceEvent = new BlockPlaceEvent(
+                        block,
+                        block.getState(),
+                        block.getRelative(lookingFacing.getOppositeFace()),
+                        itemInHand,
+                        player,
+                        hasPermission(Interaction.PLACE_BLOCK),
+                        EquipmentSlot.HAND
+                );
+                Bukkit.getPluginManager().callEvent(blockPlaceEvent);
+                if (!blockPlaceEvent.isCancelled()) {
+                    blocks.add(block);
+                    consumed += 1;
                 }
             }
+        }
 
-            // I don't know why, but it must be run later, or it will create PlayerInteractEvent AGAIN!
-            Bukkit.getScheduler().runTaskLater(getAddon().getJavaPlugin(), () -> {
-                for (Block block : blocks) {
-                    if (block == null) {
-                        continue;
-                    }
-
-                    if (copyStateAble(material)) {
-                        WorldUtils.copyBlockState(lookingAtBlock.getState(), block);
-                    } else {
-                        block.setType(material);
-                    }
-                    block.getState().update(true, true);
+        // I don't know why, but it must be run later, or it will create PlayerInteractEvent AGAIN!
+        Bukkit.getScheduler().runTaskLater(getAddon().getJavaPlugin(), () -> {
+            for (Block block : blocks) {
+                if (block == null) {
+                    continue;
                 }
-            }, 1);
 
-            if (player.getGameMode() == GameMode.CREATIVE) {
-                return;
+                if (copyStateAble(material)) {
+                    WorldUtils.copyBlockState(lookingAtBlock.getState(), block);
+                } else {
+                    block.setType(material);
+                }
+                block.getState().update(true, true);
             }
+        }, 1);
 
-            if (consumed > 0) {
-                player.getInventory().removeItem(new ItemStack(material, consumed));
-            }
-        });
+        if (player.getGameMode() == GameMode.CREATIVE) {
+            return;
+        }
+
+        if (consumed > 0) {
+            player.getInventory().removeItem(new ItemStack(material, consumed));
+        }
     }
 
     public boolean copyStateAble(@NotNull Material material) {
@@ -202,7 +194,7 @@ public abstract class BuildingStaff extends SlimefunItem implements Staff {
                         || material == Material.DISPENSER
                         || material == Material.DROPPER
                         || material == Material.HOPPER
-                        || material == materialValueOf("VAULT")
+                        || material == Material.VAULT
 
                         // Items that will take two blocks
                         || MaterialTags.BEDS.isTagged(material)
@@ -237,7 +229,7 @@ public abstract class BuildingStaff extends SlimefunItem implements Staff {
                         || material == Material.BARRIER
                         || material == Material.LIGHT
                         || material == Material.SPAWNER
-                        || material == materialValueOf("TRIAL_SPAWNER")
+                        || material == Material.TRIAL_SPAWNER
                         || material == Material.CHORUS_FLOWER
                         || material == Material.NETHER_WART
 
@@ -268,7 +260,7 @@ public abstract class BuildingStaff extends SlimefunItem implements Staff {
                         || material == Material.DECORATED_POT
                         || material == Material.CHISELED_BOOKSHELF
                         || MaterialTags.SIGNS.isTagged(material)
-                        || material == materialValueOf("CRAFTER")
+                        || material == Material.CRAFTER
 
                         // Items that have different types
                         || material == Material.PLAYER_HEAD
@@ -327,7 +319,7 @@ public abstract class BuildingStaff extends SlimefunItem implements Staff {
                         || material == Material.RED_MUSHROOM
                         || material == Material.CRIMSON_FUNGUS
                         || material == Material.WARPED_FUNGUS
-                        || material == materialValueOf("SHORT_GRASS")
+                        || material == Material.SHORT_GRASS
                         || material == Material.FERN
                         || material == Material.DEAD_BUSH
                         || material == Material.DANDELION
@@ -369,11 +361,11 @@ public abstract class BuildingStaff extends SlimefunItem implements Staff {
                         || material == Material.KELP_PLANT
                         || material == Material.SEAGRASS
                         || material == Material.LILY_PAD
-                        || material == materialValueOf("CREAKING_HEART")
-                        || material == materialValueOf("OPEN_EYEBLOSSOM")
-                        || material == materialValueOf("CLOSED_EYEBLOSSOM")
-                        || material == materialValueOf("PALE_HANGING_MOSS")
-                        || material == materialValueOf("RESIN_CLUMP")
+                        || material == Material.CREAKING_HEART
+                        || material == Material.OPEN_EYEBLOSSOM
+                        || material == Material.CLOSED_EYEBLOSSOM
+                        || material == Material.PALE_HANGING_MOSS
+                        || material == Material.RESIN_CLUMP
                         || material == Material.FIRE
                         || material == Material.SOUL_FIRE
                         || material == Material.END_PORTAL

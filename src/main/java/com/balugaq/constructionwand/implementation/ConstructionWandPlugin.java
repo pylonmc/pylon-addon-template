@@ -4,13 +4,17 @@ import com.balugaq.constructionwand.core.managers.CommandManager;
 import com.balugaq.constructionwand.core.managers.ConfigManager;
 import com.balugaq.constructionwand.core.managers.DisplayManager;
 import com.balugaq.constructionwand.core.managers.ListenerManager;
-import com.balugaq.constructionwand.core.managers.StaffSetup;
+import com.balugaq.constructionwand.core.managers.WandSetup;
 import com.balugaq.constructionwand.utils.Debug;
+import io.github.pylonmc.pylon.core.addon.PylonAddon;
 import lombok.Getter;
+import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.MessageFormat;
+import java.util.Locale;
+import java.util.Set;
 
 @SuppressWarnings({"unused"})
 public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
@@ -19,7 +23,7 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
     private @Getter ConfigManager configManager;
     private @Getter DisplayManager displayManager;
     private @Getter ListenerManager listenerManager;
-    private @Getter StaffSetup staffSetup;
+    private @Getter WandSetup staffSetup;
     private String username;
     private String repo;
     private String branch;
@@ -58,7 +62,7 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
         commandManager.setup();
 
         Debug.log("Registering wands");
-        staffSetup = new StaffSetup(this);
+        staffSetup = new WandSetup(this);
         staffSetup.setup();
 
         Debug.log("ConstructionWand Done!");
@@ -76,7 +80,7 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
         listenerManager.shutdown();
         commandManager.shutdown();
         configManager.shutdown();
-        Debug.log("Disabled BuildingStaff!");
+        Debug.log("Disabled BuildingWand!");
     }
 
     @Override
@@ -84,9 +88,18 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
     public JavaPlugin getJavaPlugin() {
         return this;
     }
-
-    @Override
+    
     public String getBugTrackerURL() {
         return MessageFormat.format("https://github.com/{0}/{1}/issues", username, repo);
+    }
+
+    @Override
+    public @NotNull Set<Locale> getLanguages() {
+        return Set.of();
+    }
+
+    @Override
+    public @NotNull Material getMaterial() {
+        return Material.BLAZE_ROD;
     }
 }

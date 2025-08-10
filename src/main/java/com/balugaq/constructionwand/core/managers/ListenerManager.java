@@ -4,7 +4,7 @@ import com.balugaq.constructionwand.api.interfaces.IManager;
 import com.balugaq.constructionwand.core.listeners.PlayerInteractListener;
 import com.balugaq.constructionwand.core.listeners.PrepareBreakingListener;
 import com.balugaq.constructionwand.core.listeners.PrepareBuildingListener;
-import com.balugaq.constructionwand.core.listeners.StaffModeSwitchListener;
+import com.balugaq.constructionwand.core.listeners.WandModeSwitchListener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
@@ -26,7 +26,7 @@ public class ListenerManager implements IManager {
         listeners.add(new PrepareBuildingListener());
         listeners.add(new PrepareBreakingListener());
         listeners.add(new PlayerInteractListener());
-        listeners.add(new StaffModeSwitchListener());
+        listeners.add(new WandModeSwitchListener());
         for (Listener listener : listeners) {
             Bukkit.getServer().getPluginManager().registerEvents(listener, plugin);
         }

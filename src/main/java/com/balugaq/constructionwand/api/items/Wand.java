@@ -1,5 +1,6 @@
 package com.balugaq.constructionwand.api.items;
 
+import com.balugaq.constructionwand.api.enums.Interaction;
 import com.balugaq.constructionwand.utils.KeyUtil;
 import com.balugaq.constructionwand.utils.PersistentUtil;
 import org.bukkit.Axis;
@@ -7,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.Nullable;
 
-public interface Staff {
+public interface Wand {
     @Nullable
     default Axis getAxis(ItemStack item) {
         String axis = PersistentUtil.getOrDefault(item, PersistentDataType.STRING, KeyUtil.AXIS, null);
@@ -31,6 +32,11 @@ public interface Staff {
     }
 
     default boolean isBlockStrict() {
+        return true;
+    }
+
+    default boolean hasPermission(Interaction interaction) {
+        // todo:  permission check
         return true;
     }
 }

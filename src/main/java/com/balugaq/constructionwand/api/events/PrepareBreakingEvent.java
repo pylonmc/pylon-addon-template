@@ -1,6 +1,6 @@
-package com.balugaq.constructionwand.api.objects.events;
+package com.balugaq.constructionwand.api.events;
 
-import com.balugaq.constructionwand.api.items.BreakingStaff;
+import com.balugaq.constructionwand.api.items.BreakingWand;
 import lombok.Getter;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -12,12 +12,12 @@ import org.jetbrains.annotations.NotNull;
 @Getter
 public class PrepareBreakingEvent extends PlayerEvent {
     private static final HandlerList handlers = new HandlerList();
-    private final BreakingStaff breakingStaff;
+    private final BreakingWand breakingWand;
     private final Block lookingAtBlock;
 
-    public PrepareBreakingEvent(@NotNull Player player, BreakingStaff breakingStaff, Block lookingAtBlock) {
+    public PrepareBreakingEvent(@NotNull Player player, BreakingWand breakingWand, Block lookingAtBlock) {
         super(player);
-        this.breakingStaff = breakingStaff;
+        this.breakingWand = breakingWand;
         this.lookingAtBlock = lookingAtBlock;
     }
 

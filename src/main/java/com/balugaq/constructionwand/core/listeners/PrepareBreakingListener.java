@@ -1,10 +1,10 @@
 package com.balugaq.constructionwand.core.listeners;
 
-import com.balugaq.constructionwand.api.items.BreakingStaff;
-import com.balugaq.constructionwand.api.objects.events.PrepareBreakingEvent;
+import com.balugaq.constructionwand.api.items.BreakingWand;
+import com.balugaq.constructionwand.api.events.PrepareBreakingEvent;
 import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
 import com.balugaq.constructionwand.utils.Debug;
-import com.balugaq.constructionwand.utils.StaffUtil;
+import com.balugaq.constructionwand.utils.WandUtil;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.FluidCollisionMode;
@@ -46,14 +46,14 @@ public class PrepareBreakingListener implements Listener {
 
         Player player = event.getPlayer();
         Debug.debug("Preparing breaking blocks...");
-        BreakingStaff breakingStaff = event.getBreakingStaff();
-        if (breakingStaff.isOpOnly() && !player.isOp()) {
+        BreakingWand breakingWand = event.getBreakingWand();
+        if (breakingWand.isOpOnly() && !player.isOp()) {
             return;
         }
-        showBreakingBlocksFor(player, event.getLookingAtBlock(), breakingStaff.getLimitBlocks(), breakingStaff);
+        showBreakingBlocksFor(player, event.getLookingAtBlock(), breakingWand.getLimitBlocks(), breakingWand);
     }
 
-    private void showBreakingBlocksFor(@NotNull Player player, @NotNull Block lookingAtBlock, int limitBlocks, @NotNull BreakingStaff breakingStaff) {
+    private void showBreakingBlocksFor(@NotNull Player player, @NotNull Block lookingAtBlock, int limitBlocks, @NotNull BreakingWand breakingWand) {
         if (!player.isOp() && !Slimefun.getProtectionManager().hasPermission(player, lookingAtBlock, Interaction.BREAK_BLOCK)) {
             return;
         }
@@ -64,20 +64,20 @@ public class PrepareBreakingListener implements Listener {
         }
 
         Material material = lookingAtBlock.getType();
-        if (breakingStaff.isDisabledMaterial(material)) {
+        if (breakingWand.isDisabledMaterial(material)) {
             return;
         }
 
         Location lookingLocation = lookingAtBlock.getLocation();
         ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
-        BlockFace lookingFacing = StaffUtil.getLookingFacing(originalFacing);
+        BlockFace lookingFacing = WandUtil.getLookingFacing(originalFacing);
 
-        Set<Location> rawLocations = StaffUtil.getRawLocations(
+        Set<Location> rawLocations = WandUtil.getRawLocations(
                 lookingAtBlock,
                 lookingFacing,
                 limitBlocks,
-                breakingStaff.getAxis(itemInMainHand),
-                breakingStaff.isBlockStrict(),
+                breakingWand.getAxis(itemInMainHand),
+                breakingWand.isBlockStrict(),
                 true
         );
 

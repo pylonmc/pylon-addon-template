@@ -21,7 +21,7 @@ import java.util.Queue;
 import java.util.Set;
 
 @SuppressWarnings("unused")
-public class StaffUtil {
+public class WandUtil {
     public static final Set<BlockFace> validFaces = new HashSet<>();
 
     static {

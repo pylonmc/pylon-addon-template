@@ -1,8 +1,7 @@
 package com.balugaq.constructionwand.core.listeners;
 
-import com.balugaq.constructionwand.api.items.Staff;
-import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.balugaq.constructionwand.api.items.Wand;
+import io.github.pylonmc.pylon.core.item.PylonItem;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -29,8 +28,8 @@ public class PlayerInteractListener implements Listener {
     public void onPlayerInteract(@NotNull PlayerInteractEvent event) {
         Player player = event.getPlayer();
         ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
-        PylonItem sfItem = PylonItem.fromStack(itemInMainHand);
-        if (sfItem instanceof Staff) {
+        PylonItem pyItem = PylonItem.fromStack(itemInMainHand);
+        if (pyItem instanceof Wand) {
             ItemStack itemInOffHand = player.getInventory().getItemInOffHand();
             if (itemInOffHand != null && itemInOffHand.getType() != Material.AIR && itemInOffHand.getType().isBlock()) {
                 event.setCancelled(true);
