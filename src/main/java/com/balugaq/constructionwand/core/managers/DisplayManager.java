@@ -5,6 +5,7 @@ import com.balugaq.constructionwand.api.items.BreakingWand;
 import com.balugaq.constructionwand.api.items.BuildingWand;
 import com.balugaq.constructionwand.api.events.PrepareBreakingEvent;
 import com.balugaq.constructionwand.api.events.PrepareBuildingEvent;
+import com.balugaq.constructionwand.utils.WandUtil;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -98,7 +99,7 @@ public class DisplayManager implements IManager {
                             continue;
                         }
 
-                        if (buildingWand.isDisabledMaterial(block.getType())) {
+                        if (WandUtil.isMaterialDisabledToBuild(block.getType())) {
                             continue;
                         }
 
@@ -111,7 +112,7 @@ public class DisplayManager implements IManager {
                             continue;
                         }
 
-                        if (breakingWand.isDisabledMaterial(block.getType())) {
+                        if (WandUtil.isMaterialDisabledToBreak(block.getType())) {
                             continue;
                         }
 

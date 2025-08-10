@@ -1,12 +1,13 @@
 package com.balugaq.constructionwand.utils;
 
+import com.balugaq.constructionwand.api.collections.Pair;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -14,6 +15,7 @@ import javax.annotation.Nonnull;
 import java.lang.reflect.Field;
 import java.util.function.Consumer;
 
+@ApiStatus.Experimental
 @SuppressWarnings("unused")
 public class WorldUtils {
     protected static @Nullable Class<?> craftBlockStateClass;
@@ -28,14 +30,14 @@ public class WorldUtils {
             World sampleWorld = Bukkit.getWorlds().get(0);
             BlockState blockstate = sampleWorld.getBlockAt(0, 0, 0).getState();
             Pair<Field, Class<?>> result = ReflectionUtil.getDeclaredFieldsRecursively(blockstate.getClass(), "data");
-            interfaceBlockDataField = result.getFirstValue();
+            interfaceBlockDataField = result.getFirst();
             interfaceBlockDataField.setAccessible(true);
-            craftBlockStateClass = result.getSecondValue();
-            blockPositionField = ReflectionUtil.getDeclaredFieldsRecursively(craftBlockStateClass, "position").getFirstValue();
+            craftBlockStateClass = result.getSecond();
+            blockPositionField = ReflectionUtil.getDeclaredFieldsRecursively(craftBlockStateClass, "position").getFirst();
             blockPositionField.setAccessible(true);
-            worldField = ReflectionUtil.getDeclaredFieldsRecursively(craftBlockStateClass, "world").getFirstValue();
+            worldField = ReflectionUtil.getDeclaredFieldsRecursively(craftBlockStateClass, "world").getFirst();
             worldField.setAccessible(true);
-            weakWorldField = ReflectionUtil.getDeclaredFieldsRecursively(craftBlockStateClass, "weakWorld").getFirstValue();
+            weakWorldField = ReflectionUtil.getDeclaredFieldsRecursively(craftBlockStateClass, "weakWorld").getFirst();
             weakWorldField.setAccessible(true);
             success = true;
         } catch (NullPointerException ignored) {

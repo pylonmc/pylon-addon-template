@@ -9,6 +9,8 @@ import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("unused")
 @UtilityClass
 public class KeyUtil {
+    public static final NamespacedKey AXIS = newKey("axis");
+
     public static @NotNull NamespacedKey newKey(@NotNull String key) {
         return new NamespacedKey(ConstructionWandPlugin.getInstance(), key);
     }

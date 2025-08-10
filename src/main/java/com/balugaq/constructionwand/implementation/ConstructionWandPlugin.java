@@ -106,7 +106,8 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
                 Locale.CANADA,
                 Locale.CANADA_FRENCH,
                 Locale.GERMANY,
-                Locale.ITALIAN
+                Locale.ITALIAN,
+                Locale.of("ru")
         );
     }
 

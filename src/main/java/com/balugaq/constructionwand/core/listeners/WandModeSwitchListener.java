@@ -2,6 +2,7 @@ package com.balugaq.constructionwand.core.listeners;
 
 import com.balugaq.constructionwand.api.items.Wand;
 import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
+import com.balugaq.constructionwand.utils.WandUtil;
 import io.github.pylonmc.pylon.core.item.PylonItem;
 import org.bukkit.Axis;
 import org.bukkit.ChatColor;
@@ -25,7 +26,7 @@ public class WandModeSwitchListener implements Listener {
         ItemStack itemInOffHand = event.getOffHandItem();
         PylonItem wandLike = PylonItem.fromStack(itemInOffHand);
         if (wandLike instanceof Wand wand) {
-            Axis axis = wand.getAxis(itemInOffHand);
+            Axis axis = WandUtil.getAxis(itemInOffHand);
             Axis nextAxis;
             if (axis == null) {
                 nextAxis = Axis.X;
@@ -38,7 +39,7 @@ public class WandModeSwitchListener implements Listener {
                 }
             }
 
-            wand.setAxis(itemInOffHand, nextAxis);
+            WandUtil.setAxis(itemInOffHand, nextAxis);
             ItemMeta meta = itemInOffHand.getItemMeta();
             if (meta == null) {
                 return;

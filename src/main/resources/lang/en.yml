@@ -1,0 +1,64 @@
+addon: "Construction-wand"
+
+item:
+  building-wand-9:
+    name: "<green>Build Staff | <blue>9 Blocks"
+    lore: |-
+      <gray>Right-click to place blocks
+      <attr>Max Range:</attr> %range% Blocks
+      <green>Selected area can be formed by any block
+  building-wand-64:
+    name: "<green>Build Staff | <gold>64 Blocks"
+    lore: |-
+      <gray>Right-click to place blocks
+      <attr>Max Range:</attr> %range% Blocks
+      <green>Selected area can be formed by any block
+  building-wand-4096:
+    name: "<green>Build Staff | <yellow>4096 Blocks"
+    lore: |-
+      <gray>Right-click to place blocks
+      <attr>Max Range:</attr> %range% Blocks
+      <green>Selected area can be formed by any block
+      <red>OP only
+  building-wand-block-strict-9:
+    name: "<green>Build Staff | <blue>9 Blocks"
+    lore: |-
+      <gray>Right-click to place blocks
+      <attr>Max Range:</attr> %range% Blocks
+      <red>Selected area can be formed only by one kind of block
+  building-wand-block-strict-64:
+    name: "<green>Build Staff | <gold>64 Blocks"
+    lore: |-
+      <gray>Right-click to place blocks
+      <attr>Max Range:</attr> %range% Blocks
+      <red>Selected area can be formed only by one kind of block
+  building-wand-block-strict-4096:
+    name: "<green>Build Staff | <yellow>4096 Blocks"
+    lore: |-
+      <gray>Right-click to place blocks
+      <attr>Max Range:</attr> %range% Blocks
+      <red>Selected area can be formed only by one kind of block
+      <red>OP only
+  breaking-wand-9:
+    name: "<red>Break Staff | <blue>9 Blocks"
+    lore: |-
+      <gray>Right-click to break blocks
+      <attr>Max Range:</attr> %range% Blocks
+      <red>Selected area can be formed only by one kind of block
+  breaking-wand-64:
+    name: "<red>Break Staff | <gold>64 Blocks"
+    lore: |-
+      <gray>Right-click to break blocks
+      <attr>Max Range:</attr> %range% Blocks
+      <red>Selected area can be formed only by one kind of block
+  breaking-wand-4096:
+    name: "<red>Break Staff | <yellow>4096 Blocks"
+    lore: |-
+      <gray>Right-click to break blocks
+      <attr>Max Range:</attr> %range% Blocks
+      <red>Selected area can be formed only by one kind of block
+      <red>OP only
+
+guide:
+  page:
+    construction-wand: "Construction Wand"

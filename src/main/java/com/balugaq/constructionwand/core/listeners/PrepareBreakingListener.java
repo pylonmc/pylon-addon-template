@@ -63,7 +63,7 @@ public class PrepareBreakingListener implements Listener {
         }
 
         Material material = lookingAtBlock.getType();
-        if (breakingWand.isDisabledMaterial(material)) {
+        if (WandUtil.isMaterialDisabledToBreak(material)) {
             return;
         }
 
@@ -75,7 +75,7 @@ public class PrepareBreakingListener implements Listener {
                 lookingAtBlock,
                 lookingFacing,
                 limitBlocks,
-                breakingWand.getAxis(itemInMainHand),
+                WandUtil.getAxis(itemInMainHand),
                 breakingWand.isBlockStrict(),
                 true
         );
