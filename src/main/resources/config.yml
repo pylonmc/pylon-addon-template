@@ -1,2 +1,14 @@
-debug: false
+auto-update: false
 display-projection: true
+limit-blocks:
+  building-wand-1: 9
+  building-wand-2: 64
+  building-wand-3: 4096
+  building-wand-block-strict-1: 9
+  building-wand-block-strict-2: 64
+  building-wand-block-strict-3: 4096
+  breaking-wand-1: 9
+  breaking-wand-2: 64
+  breaking-wand-3: 4096
+
+debug: false

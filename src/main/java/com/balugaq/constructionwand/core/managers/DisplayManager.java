@@ -1,12 +1,12 @@
 package com.balugaq.constructionwand.core.managers;
 
+import com.balugaq.constructionwand.api.events.PrepareBreakingEvent;
+import com.balugaq.constructionwand.api.events.PrepareBuildingEvent;
 import com.balugaq.constructionwand.api.interfaces.IManager;
 import com.balugaq.constructionwand.api.items.BreakingWand;
 import com.balugaq.constructionwand.api.items.BuildingWand;
-import com.balugaq.constructionwand.api.events.PrepareBreakingEvent;
-import com.balugaq.constructionwand.api.events.PrepareBuildingEvent;
 import com.balugaq.constructionwand.utils.WandUtil;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.pylonmc.pylon.core.item.PylonItem;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.FluidCollisionMode;
@@ -93,9 +93,9 @@ public class DisplayManager implements IManager {
                     lookingAt.put(uuid, location);
                     lookingFaces.put(uuid, originalFacing);
 
-                    SlimefunItem wandLike = SlimefunItem.getByItem(player.getInventory().getItemInMainHand());
+                    PylonItem wandLike = PylonItem.fromStack(player.getInventory().getItemInMainHand());
                     if (wandLike instanceof BuildingWand buildingWand) {
-                        if (buildingWand.isDisabledIn(block.getWorld())) {
+                        if (buildingWand.isDisabled()) {
                             continue;
                         }
 
@@ -108,7 +108,7 @@ public class DisplayManager implements IManager {
                     }
 
                     if (wandLike instanceof BreakingWand breakingWand) {
-                        if (breakingWand.isDisabledIn(block.getWorld())) {
+                        if (breakingWand.isDisabled()) {
                             continue;
                         }
 

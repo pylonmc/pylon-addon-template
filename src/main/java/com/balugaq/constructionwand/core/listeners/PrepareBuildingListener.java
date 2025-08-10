@@ -1,14 +1,13 @@
 package com.balugaq.constructionwand.core.listeners;
 
 import com.balugaq.constructionwand.api.enums.Interaction;
-import com.balugaq.constructionwand.api.items.BuildingWand;
 import com.balugaq.constructionwand.api.events.PrepareBuildingEvent;
+import com.balugaq.constructionwand.api.items.BuildingWand;
 import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
+import com.balugaq.constructionwand.implementation.WandConfig;
 import com.balugaq.constructionwand.utils.Debug;
 import com.balugaq.constructionwand.utils.PermissionUtil;
 import com.balugaq.constructionwand.utils.WandUtil;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -26,7 +25,6 @@ import java.util.Set;
 import java.util.UUID;
 
 public class PrepareBuildingListener implements Listener {
-    private static final boolean DISPLAY_PROJECTION = ConstructionWandPlugin.getInstance().getConfigManager().isDisplayProjection();
     private static final ModelCuboid blockBase = new ModelCuboid()
             .size(0.6F, 0.6F, 0.6F);
     private static final ModelCuboid border = new ModelCuboid()
@@ -35,7 +33,7 @@ public class PrepareBuildingListener implements Listener {
 
     @EventHandler
     public void onPrepareBuilding(@NotNull PrepareBuildingEvent event) {
-        if (!DISPLAY_PROJECTION) {
+        if (!WandConfig.DISPLAY_PROJECTION) {
             return;
         }
 

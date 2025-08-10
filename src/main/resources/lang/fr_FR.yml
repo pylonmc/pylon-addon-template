@@ -1,0 +1,64 @@
+addon: "Baguette de construction"
+
+item:
+  building-wand-1:
+    name: "<green>Baguette constructive | <blue>%range% blocs"
+    lore: |-
+      <gray>Clic-droit pour placer des blocs
+      <attr>Portée maximale :</attr> %range% blocs
+      <green>La zone peut être formée de n'importe quels blocs
+  building-wand-2:
+    name: "<green>Baguette constructive | <gold>%range% blocs"
+    lore: |-
+      <gray>Clic-droit pour placer des blocs
+      <attr>Portée maximale :</attr> %range% blocs
+      <green>La zone peut être formée de n'importe quels blocs
+  building-wand-3:
+    name: "<green>Baguette constructive | <yellow>%range% blocs"
+    lore: |-
+      <gray>Clic-droit pour placer des blocs
+      <attr>Portée maximale :</attr> %range% blocs
+      <green>La zone peut être formée de n'importe quels blocs
+      <red>Admin uniquement
+  building-wand-block-strict-1:
+    name: "<green>Baguette constructive | <blue>%range% blocs"
+    lore: |-
+      <gray>Clic-droit pour placer des blocs
+      <attr>Portée maximale :</attr> %range% blocs
+      <red>La zone doit être d'un seul type de bloc
+  building-wand-block-strict-2:
+    name: "<green>Baguette constructive | <gold>%range% blocs"
+    lore: |-
+      <gray>Clic-droit pour placer des blocs
+      <attr>Portée maximale :</attr> %range% blocs
+      <red>La zone doit être d'un seul type de bloc
+  building-wand-block-strict-3:
+    name: "<green>Baguette constructive | <yellow>%range% blocs"
+    lore: |-
+      <gray>Clic-droit pour placer des blocs
+      <attr>Portée maximale :</attr> %range% blocs
+      <red>La zone doit être d'un seul type de bloc
+      <red>Admin uniquement
+  breaking-wand-1:
+    name: "<red>Baguette destructive | <blue>%range% blocs"
+    lore: |-
+      <gray>Clic-droit pour détruire des blocs
+      <attr>Portée maximale :</attr> %range% blocs
+      <red>La zone doit être d'un seul type de bloc
+  breaking-wand-2:
+    name: "<red>Baguette destructive | <gold>%range% blocs"
+    lore: |-
+      <gray>Clic-droit pour détruire des blocs
+      <attr>Portée maximale :</attr> %range% blocs
+      <red>La zone doit être d'un seul type de bloc
+  breaking-wand-3:
+    name: "<red>Baguette destructive | <yellow>%range% blocs"
+    lore: |-
+      <gray>Clic-droit pour détruire des blocs
+      <attr>Portée maximale :</attr> %range% blocs
+      <red>La zone doit être d'un seul type de bloc
+      <red>Admin uniquement
+
+guide:
+  page:
+    construction-wand: "Baguette de construction"

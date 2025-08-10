@@ -1,9 +1,10 @@
 package com.balugaq.constructionwand.core.listeners;
 
 import com.balugaq.constructionwand.api.enums.Interaction;
-import com.balugaq.constructionwand.api.items.BreakingWand;
 import com.balugaq.constructionwand.api.events.PrepareBreakingEvent;
+import com.balugaq.constructionwand.api.items.BreakingWand;
 import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
+import com.balugaq.constructionwand.implementation.WandConfig;
 import com.balugaq.constructionwand.utils.Debug;
 import com.balugaq.constructionwand.utils.PermissionUtil;
 import com.balugaq.constructionwand.utils.WandUtil;
@@ -31,15 +32,13 @@ import java.util.Set;
 import java.util.UUID;
 
 public class PrepareBreakingListener implements Listener {
-    private static final boolean DISPLAY_PROJECTION = ConstructionWandPlugin.getInstance().getConfigManager().isDisplayProjection();
-
     private static final ModelCuboid border = new ModelCuboid()
             .material(Material.RED_STAINED_GLASS)
             .size(0.9F, 0.9F, 0.9F);
 
     @EventHandler
     public void onPrepareBreaking(@NotNull PrepareBreakingEvent event) {
-        if (!DISPLAY_PROJECTION) {
+        if (!WandConfig.DISPLAY_PROJECTION) {
             return;
         }
 

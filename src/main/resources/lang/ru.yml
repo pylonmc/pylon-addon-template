@@ -1,0 +1,64 @@
+addon: "Строительный жезл"
+
+item:
+  building-wand-1:
+    name: "<green>Строительный жезл | <blue>%range% блоков"
+    lore: |-
+      <gray>Правый клик - установка блоков
+      <attr>Макс. радиус:</attr> %range% блоков
+      <green>Область может состоять из любых блоков
+  building-wand-2:
+    name: "<green>Строительный жезл | <gold>%range% блоков"
+    lore: |-
+      <gray>Правый клик - установка блоков
+      <attr>Макс. радиус:</attr> %range% блоков
+      <green>Область может состоять из любых блоков
+  building-wand-3:
+    name: "<green>Строительный жезл | <yellow>%range% блоков"
+    lore: |-
+      <gray>Правый клик - установка блоков
+      <attr>Макс. радиус:</attr> %range% блоков
+      <green>Область может состоять из любых блоков
+      <red>Только для OP
+  building-wand-block-strict-1:
+    name: "<green>Строительный жезл | <blue>%range% блоков"
+    lore: |-
+      <gray>Правый клик - установка блоков
+      <attr>Макс. радиус:</attr> %range% блоков
+      <red>Область должна состоять из блоков одного типа
+  building-wand-block-strict-2:
+    name: "<green>Строительный жезл | <gold>%range% блоков"
+    lore: |-
+      <gray>Правый клик - установка блоков
+      <attr>Макс. радиус:</attr> %range% блоков
+      <red>Область должна состоять из блоков одного типа
+  building-wand-block-strict-3:
+    name: "<green>Строительный жезл | <yellow>%range% блоков"
+    lore: |-
+      <gray>Правый клик - установка блоков
+      <attr>Макс. радиус:</attr> %range% блоков
+      <red>Область должна состоять из блоков одного типа
+      <red>Только для OP
+  breaking-wand-1:
+    name: "<red>Разрушающий жезл | <blue>%range% блоков"
+    lore: |-
+      <gray>Правый клик - разрушение блоков
+      <attr>Макс. радиус:</attr> %range% блоков
+      <red>Область должна состоять из блоков одного типа
+  breaking-wand-2:
+    name: "<red>Разрушающий жезл | <gold>%range% блоков"
+    lore: |-
+      <gray>Правый клик - разрушение блоков
+      <attr>Макс. радиус:</attr> %range% блоков
+      <red>Область должна состоять из блоков одного типа
+  breaking-wand-3:
+    name: "<red>Разрушающий жезл | <yellow>%range% блоков"
+    lore: |-
+      <gray>Правый клик - разрушение блоков
+      <attr>Макс. радиус:</attr> %range% блоков
+      <red>Область должна состоять из блоков одного типа
+      <red>Только для OP
+
+guide:
+  page:
+    construction-wand: "Строительный жезл"

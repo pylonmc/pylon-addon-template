@@ -1,7 +1,6 @@
 package com.balugaq.constructionwand.implementation;
 
 import com.balugaq.constructionwand.core.managers.CommandManager;
-import com.balugaq.constructionwand.core.managers.ConfigManager;
 import com.balugaq.constructionwand.core.managers.DisplayManager;
 import com.balugaq.constructionwand.core.managers.ListenerManager;
 import com.balugaq.constructionwand.core.managers.WandSetup;
@@ -21,7 +20,6 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
     @Getter
     private static ConstructionWandPlugin instance;
     private @Getter CommandManager commandManager;
-    private @Getter ConfigManager configManager;
     private @Getter DisplayManager displayManager;
     private @Getter ListenerManager listenerManager;
     private @Getter WandSetup wandSetup;
@@ -44,10 +42,6 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
         this.username = "balugaq";
         this.repo = "construction-wand";
         this.branch = "master";
-
-        Debug.log("Loading config manager");
-        configManager = new ConfigManager(this);
-        configManager.setup();
 
         Debug.log("Loading display manager");
         displayManager = new DisplayManager(this);
@@ -79,7 +73,6 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
         displayManager.shutdown();
         listenerManager.shutdown();
         commandManager.shutdown();
-        configManager.shutdown();
         Debug.log("Disabled BuildingWand!");
     }
 
@@ -88,7 +81,7 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
     public JavaPlugin getJavaPlugin() {
         return this;
     }
-    
+
     public String getBugTrackerURL() {
         return MessageFormat.format("https://github.com/{0}/{1}/issues", username, repo);
     }

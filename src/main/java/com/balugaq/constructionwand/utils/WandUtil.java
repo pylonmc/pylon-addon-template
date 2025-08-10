@@ -420,22 +420,22 @@ public class WandUtil {
 
     public static boolean isMaterialDisabledToBreak(@NotNull Material material) {
         if (
-            material.isAir()
-            || !material.isBlock()
+                material.isAir()
+                        || !material.isBlock()
 
-            || material == Material.END_PORTAL_FRAME
-            || material == Material.BEDROCK
-            || material == Material.COMMAND_BLOCK
-            || material == Material.CHAIN_COMMAND_BLOCK
-            || material == Material.REPEATING_COMMAND_BLOCK
-            || material == Material.STRUCTURE_VOID
-            || material == Material.STRUCTURE_BLOCK
-            || material == Material.JIGSAW
-            || material == Material.BARRIER
-            || material == Material.LIGHT
-            || material == Material.SPAWNER
-            || material == Material.TRIAL_SPAWNER
-            || material.getHardness() < 0
+                        || material == Material.END_PORTAL_FRAME
+                        || material == Material.BEDROCK
+                        || material == Material.COMMAND_BLOCK
+                        || material == Material.CHAIN_COMMAND_BLOCK
+                        || material == Material.REPEATING_COMMAND_BLOCK
+                        || material == Material.STRUCTURE_VOID
+                        || material == Material.STRUCTURE_BLOCK
+                        || material == Material.JIGSAW
+                        || material == Material.BARRIER
+                        || material == Material.LIGHT
+                        || material == Material.SPAWNER
+                        || material == Material.TRIAL_SPAWNER
+                        || material.getHardness() < 0
         ) {
             return true;
         }

@@ -9,6 +9,7 @@ public interface Wand {
     default boolean isBlockStrict() {
         return true;
     }
+
     default boolean isOpOnly() {
         return false;
     }
