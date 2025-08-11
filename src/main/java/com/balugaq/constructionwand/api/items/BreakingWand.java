@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 @Getter
 @Setter
-public class BreakingWand extends PylonItem implements Wand, PylonInteractor, RegistryHandler {
+public class BreakingWand extends PylonItem implements Wand {
     private int limitBlocks;
     private boolean blockStrict;
     private boolean opOnly;
@@ -24,12 +24,8 @@ public class BreakingWand extends PylonItem implements Wand, PylonInteractor, Re
         super(stack);
     }
 
+    @Override
     public void onUsedToRightClick(@NotNull PlayerInteractEvent event) {
         WandUtil.breakBlocks(ConstructionWandPlugin.getInstance(), event, isDisabled(), this.limitBlocks, this.blockStrict, this.opOnly);
-    }
-
-    @Override
-    public void onRegister(@NotNull PylonRegistry<?> registry) {
-        onLoad(this, getKey());
     }
 }

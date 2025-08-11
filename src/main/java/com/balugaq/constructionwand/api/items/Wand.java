@@ -1,7 +1,10 @@
 package com.balugaq.constructionwand.api.items;
 
-import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import io.github.pylonmc.pylon.core.i18n.PylonArgument;
+import io.github.pylonmc.pylon.core.item.base.PylonInteractor;
+import io.github.pylonmc.pylon.core.registry.PylonRegistry;
+import io.github.pylonmc.pylon.core.registry.RegistryHandler;
+import org.bukkit.Keyed;
 import org.bukkit.NamespacedKey;
 import org.jetbrains.annotations.NotNull;
 
@@ -10,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
-public interface Wand {
+public interface Wand extends Keyed, PylonInteractor, RegistryHandler {
     Map<NamespacedKey, Consumer<Wand>> handlers = new HashMap<>();
 
     default boolean isBlockStrict() {
@@ -39,5 +42,10 @@ public interface Wand {
 
     static void setOnLoad(@NotNull NamespacedKey key, @NotNull Consumer<Wand> consumer) {
         handlers.put(key, consumer);
+    }
+
+    @Override
+    default void onRegister(@NotNull PylonRegistry<?> registry) {
+        onLoad(this, getKey());
     }
 }
