@@ -2,57 +2,57 @@ addon: "Stavěcí hůlka"
 
 item:
   building-wand-1:
-    name: "<green>Stavěcí hůlka | <blue>%range% bloků"
+    name: "<green>Stavěcí hůlka | <blue>Level 1"
     lore: |-
       <gray>Pravým tlačítkem položte bloky
       <attr>Maximální dosah:</attr> %range% bloků
       <green>Oblast může být tvořena libovolnými bloky
   building-wand-2:
-    name: "<green>Stavěcí hůlka | <gold>%range% bloků"
+    name: "<green>Stavěcí hůlka | <gold>Level 2"
     lore: |-
       <gray>Pravým tlačítkem položte bloky
       <attr>Maximální dosah:</attr> %range% bloků
       <green>Oblast může být tvořena libovolnými bloky
   building-wand-3:
-    name: "<green>Stavěcí hůlka | <yellow>%range% bloků"
+    name: "<green>Stavěcí hůlka | <yellow>Level 3"
     lore: |-
       <gray>Pravým tlačítkem položte bloky
       <attr>Maximální dosah:</attr> %range% bloků
       <green>Oblast může být tvořena libovolnými bloky
       <red>Pouze pro správce
   building-wand-block-strict-1:
-    name: "<green>Stavěcí hůlka | <blue>%range% bloků"
+    name: "<green>Stavěcí hůlka | <blue>Level 1"
     lore: |-
       <gray>Pravým tlačítkem položte bloky
       <attr>Maximální dosah:</attr> %range% bloků
       <red>Oblast musí být tvořena pouze jedním typem bloků
   building-wand-block-strict-2:
-    name: "<green>Stavěcí hůlka | <gold>%range% bloků"
+    name: "<green>Stavěcí hůlka | <gold>Level 2"
     lore: |-
       <gray>Pravým tlačítkem položte bloky
       <attr>Maximální dosah:</attr> %range% bloků
       <red>Oblast musí být tvořena pouze jedním typem bloků
   building-wand-block-strict-3:
-    name: "<green>Stavěcí hůlka | <yellow>%range% bloků"
+    name: "<green>Stavěcí hůlka | <yellow>Level 3"
     lore: |-
       <gray>Pravým tlačítkem položte bloky
       <attr>Maximální dosah:</attr> %range% bloků
       <red>Oblast musí být tvořena pouze jedním typem bloků
       <red>Pouze pro správce
   breaking-wand-1:
-    name: "<red>Ničící hůlka | <blue>%range% bloků"
+    name: "<red>Ničící hůlka | <blue>Level 1"
     lore: |-
       <gray>Pravým tlačítkem ničte bloky
       <attr>Maximální dosah:</attr> %range% bloků
       <red>Oblast musí být tvořena pouze jedním typem bloků
   breaking-wand-2:
-    name: "<red>Ničící hůlka | <gold>%range% bloků"
+    name: "<red>Ničící hůlka | <gold>Level 2"
     lore: |-
       <gray>Pravým tlačítkem ničte bloky
       <attr>Maximální dosah:</attr> %range% bloků
       <red>Oblast musí být tvořena pouze jedním typem bloků
   breaking-wand-3:
-    name: "<red>Ničící hůlka | <yellow>%range% bloků"
+    name: "<red>Ničící hůlka | <yellow>Level 3"
     lore: |-
       <gray>Pravým tlačítkem ničte bloky
       <attr>Maximální dosah:</attr> %range% bloků

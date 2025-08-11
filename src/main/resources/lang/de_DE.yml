@@ -2,57 +2,57 @@ addon: "Bau Zauberstab"
 
 item:
   building-wand-1:
-    name: "<green>Bau-Zauberstab | <blue>%range% Blöcke"
+    name: "<green>Bau-Zauberstab | <blue>Level 1"
     lore: |-
       <gray>Rechtsklick zum Platzieren von Blöcken
       <attr>Maximale Reichweite:</attr> %range% Blöcke
       <green>Bereich kann aus beliebigen Blöcken bestehen
   building-wand-2:
-    name: "<green>Bau-Zauberstab | <gold>%range% Blöcke"
+    name: "<green>Bau-Zauberstab | <gold>Level 2"
     lore: |-
       <gray>Rechtsklick zum Platzieren von Blöcken
       <attr>Maximale Reichweite:</attr> %range% Blöcke
       <green>Bereich kann aus beliebigen Blöcken bestehen
   building-wand-3:
-    name: "<green>Bau-Zauberstab | <yellow>%range% Blöcke"
+    name: "<green>Bau-Zauberstab | <yellow>Level 3"
     lore: |-
       <gray>Rechtsklick zum Platzieren von Blöcken
       <attr>Maximale Reichweite:</attr> %range% Blöcke
       <green>Bereich kann aus beliebigen Blöcken bestehen
       <red>Nur für OP
   building-wand-block-strict-1:
-    name: "<green>Bau-Zauberstab | <blue>%range% Blöcke"
+    name: "<green>Bau-Zauberstab | <blue>Level 1"
     lore: |-
       <gray>Rechtsklick zum Platzieren von Blöcken
       <attr>Maximale Reichweite:</attr> %range% Blöcke
       <red>Bereich darf nur eine Blockart enthalten
   building-wand-block-strict-2:
-    name: "<green>Bau-Zauberstab | <gold>%range% Blöcke"
+    name: "<green>Bau-Zauberstab | <gold>Level 2"
     lore: |-
       <gray>Rechtsklick zum Platzieren von Blöcken
       <attr>Maximale Reichweite:</attr> %range% Blöcke
       <red>Bereich darf nur eine Blockart enthalten
   building-wand-block-strict-3:
-    name: "<green>Bau-Zauberstab | <yellow>%range% Blöcke"
+    name: "<green>Bau-Zauberstab | <yellow>Level 3"
     lore: |-
       <gray>Rechtsklick zum Platzieren von Blöcken
       <attr>Maximale Reichweite:</attr> %range% Blöcke
       <red>Bereich darf nur eine Blockart enthalten
       <red>Nur für OP
   breaking-wand-1:
-    name: "<red>Abbau-Zauberstab | <blue>%range% Blöcke"
+    name: "<red>Abbau-Zauberstab | <blue>Level 1"
     lore: |-
       <gray>Rechtsklick zum Zerstören von Blöcken
       <attr>Maximale Reichweite:</attr> %range% Blöcke
       <red>Bereich darf nur eine Blockart enthalten
   breaking-wand-2:
-    name: "<red>Abbau-Zauberstab | <gold>%range% Blöcke"
+    name: "<red>Abbau-Zauberstab | <gold>Level 2"
     lore: |-
       <gray>Rechtsklick zum Zerstören von Blöcken
       <attr>Maximale Reichweite:</attr> %range% Blöcke
       <red>Bereich darf nur eine Blockart enthalten
   breaking-wand-3:
-    name: "<red>Abbau-Zauberstab | <yellow>%range% Blöcke"
+    name: "<red>Abbau-Zauberstab | <yellow>Level 3"
     lore: |-
       <gray>Rechtsklick zum Zerstören von Blöcken
       <attr>Maximale Reichweite:</attr> %range% Blöcke

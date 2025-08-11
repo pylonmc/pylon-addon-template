@@ -2,57 +2,57 @@ addon: "Bâton de construction"
 
 item:
   building-wand-1:
-    name: "<green>Bâton constructif | <blue>%range% blocs"
+    name: "<green>Bâton constructif | <blue>Niveau 1"
     lore: |-
       <gray>Clic droit pour placer des blocs
       <attr>Portée max :</attr> %range% blocs
       <green>Secteur peut contenir tout type de blocs
   building-wand-2:
-    name: "<green>Bâton constructif | <gold>%range% blocs"
+    name: "<green>Bâton constructif | <gold>Niveau 2"
     lore: |-
       <gray>Clic droit pour placer des blocs
       <attr>Portée max :</attr> %range% blocs
       <green>Secteur peut contenir tout type de blocs
   building-wand-3:
-    name: "<green>Bâton constructif | <yellow>%range% blocs"
+    name: "<green>Bâton constructif | <yellow>Niveau 3"
     lore: |-
       <gray>Clic droit pour placer des blocs
       <attr>Portée max :</attr> %range% blocs
       <green>Secteur peut contenir tout type de blocs
       <red>Admin (OP) uniquement
   building-wand-block-strict-1:
-    name: "<green>Bâton constructif | <blue>%range% blocs"
+    name: "<green>Bâton constructif | <blue>Niveau 1"
     lore: |-
       <gray>Clic droit pour placer des blocs
       <attr>Portée max :</attr> %range% blocs
       <red>Secteur limité à un seul type de bloc
   building-wand-block-strict-2:
-    name: "<green>Bâton constructif | <gold>%range% blocs"
+    name: "<green>Bâton constructif | <gold>Niveau 2"
     lore: |-
       <gray>Clic droit pour placer des blocs
       <attr>Portée max :</attr> %range% blocs
       <red>Secteur limité à un seul type de bloc
   building-wand-block-strict-3:
-    name: "<green>Bâton constructif | <yellow>%range% blocs"
+    name: "<green>Bâton constructif | <yellow>Niveau 3"
     lore: |-
       <gray>Clic droit pour placer des blocs
       <attr>Portée max :</attr> %range% blocs
       <red>Secteur limité à un seul type de bloc
       <red>Admin (OP) uniquement
   breaking-wand-1:
-    name: "<red>Bâton destructeur | <blue>%range% blocs"
+    name: "<red>Bâton destructeur | <blue>Niveau 1"
     lore: |-
       <gray>Clic droit pour détruire des blocs
       <attr>Portée max :</attr> %range% blocs
       <red>Secteur limité à un seul type de bloc
   breaking-wand-2:
-    name: "<red>Bâton destructeur | <gold>%range% blocs"
+    name: "<red>Bâton destructeur | <gold>Niveau 2"
     lore: |-
       <gray>Clic droit pour détruire des blocs
       <attr>Portée max :</attr> %range% blocs
       <red>Secteur limité à un seul type de bloc
   breaking-wand-3:
-    name: "<red>Bâton destructeur | <yellow>%range% blocs"
+    name: "<red>Bâton destructeur | <yellow>Niveau 3"
     lore: |-
       <gray>Clic droit pour détruire des blocs
       <attr>Portée max :</attr> %range% blocs

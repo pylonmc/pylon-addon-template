@@ -2,57 +2,57 @@ addon: "Edification Sceptre"
 
 item:
   building-wand-1:
-    name: "<green>Architect's Rod | <blue>%range% Stones"
+    name: "<green>Architect's Rod | <blue>Level 1"
     lore: |-
       <gray>Right-clicketh to lay stones
       <attr>Farthest Reach:</attr> %range% Stones
       <green>Thy chosen plot may bear stones of divers kind
   building-wand-2:
-    name: "<green>Architect's Rod | <gold>%range% Stones"
+    name: "<green>Architect's Rod | <gold>Level 2"
     lore: |-
       <gray>Right-clicketh to lay stones
       <attr>Farthest Reach:</attr> %range% Stones
       <green>Thy chosen plot may bear stones of divers kind
   building-wand-3:
-    name: "<green>Architect's Rod | <yellow>%range% Stones"
+    name: "<green>Architect's Rod | <yellow>Level 3"
     lore: |-
       <gray>Right-clicketh to lay stones
       <attr>Farthest Reach:</attr> %range% Stones
       <green>Thy chosen plot may bear stones of divers kind
       <red>For Crown'd Masters only
   building-wand-block-strict-1:
-    name: "<green>Architect's Rod | <blue>%range% Stones"
+    name: "<green>Architect's Rod | <blue>Level 1"
     lore: |-
       <gray>Right-clicketh to lay stones
       <attr>Farthest Reach:</attr> %range% Stones
       <red>Thy plot must bear stones of selfsame kin
   building-wand-block-strict-2:
-    name: "<green>Architect's Rod | <gold>%range% Stones"
+    name: "<green>Architect's Rod | <gold>Level 2"
     lore: |-
       <gray>Right-clicketh to lay stones
       <attr>Farthest Reach:</attr> %range% Stones
       <red>Thy plot must bear stones of selfsame kin
   building-wand-block-strict-3:
-    name: "<green>Architect's Rod | <yellow>%range% Stones"
+    name: "<green>Architect's Rod | <yellow>Level 3"
     lore: |-
       <gray>Right-clicketh to lay stones
       <attr>Farthest Reach:</attr> %range% Stones
       <red>Thy plot must bear stones of selfsame kin
       <red>For Crown'd Masters only
   breaking-wand-1:
-    name: "<red>Demolisher's Wand | <blue>%range% Stones"
+    name: "<red>Demolisher's Wand | <blue>Level 1"
     lore: |-
       <gray>Right-clicketh to shatter stones
       <attr>Farthest Reach:</attr> %range% Stones
       <red>Thy plot must bear stones of selfsame kin
   breaking-wand-2:
-    name: "<red>Demolisher's Wand | <gold>%range% Stones"
+    name: "<red>Demolisher's Wand | <gold>Level 2"
     lore: |-
       <gray>Right-clicketh to shatter stones
       <attr>Farthest Reach:</attr> %range% Stones
       <red>Thy plot must bear stones of selfsame kin
   breaking-wand-3:
-    name: "<red>Demolisher's Wand | <yellow>%range% Stones"
+    name: "<red>Demolisher's Wand | <yellow>Level 3"
     lore: |-
       <gray>Right-clicketh to shatter stones
       <attr>Farthest Reach:</attr> %range% Stones

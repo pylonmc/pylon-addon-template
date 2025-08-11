@@ -2,57 +2,57 @@ addon: "建築魔杖"
 
 item:
   building-wand-1:
-    name: "<green>建築魔杖 | <blue>%range% 格範圍"
+    name: "<green>建築魔杖 | <blue>等級 1"
     lore: |-
       <gray>右鍵放置方塊
       <attr>最大範圍：</attr> %range% 格
       <green>選區可由任意方塊組成
   building-wand-2:
-    name: "<green>建築魔杖 | <gold>%range% 格範圍"
+    name: "<green>建築魔杖 | <gold>等級 2"
     lore: |-
       <gray>右鍵放置方塊
       <attr>最大範圍：</attr> %range% 格
       <green>選區可由任意方塊組成
   building-wand-3:
-    name: "<green>建築魔杖 | <yellow>%range% 格範圍"
+    name: "<green>建築魔杖 | <yellow>等級 3"
     lore: |-
       <gray>右鍵放置方塊
       <attr>最大範圍：</attr> %range% 格
       <green>選區可由任意方塊組成
       <red>僅管理員可用
   building-wand-block-strict-1:
-    name: "<green>建築魔杖 | <blue>%range% 格範圍"
+    name: "<green>建築魔杖 | <blue>等級 1"
     lore: |-
       <gray>右鍵放置方塊
       <attr>最大範圍：</attr> %range% 格
       <red>選區僅限單一方塊類型
   building-wand-block-strict-2:
-    name: "<green>建築魔杖 | <gold>%range% 格範圍"
+    name: "<green>建築魔杖 | <gold>等級 2"
     lore: |-
       <gray>右鍵放置方塊
       <attr>最大範圍：</attr> %range% 格
       <red>選區僅限單一方塊類型
   building-wand-block-strict-3:
-    name: "<green>建築魔杖 | <yellow>%range% 格範圍"
+    name: "<green>建築魔杖 | <yellow>等級 3"
     lore: |-
       <gray>右鍵放置方塊
       <attr>最大範圍：</attr> %range% 格
       <red>選區僅限單一方塊類型
       <red>僅管理員可用
   breaking-wand-1:
-    name: "<red>拆除魔杖 | <blue>%range% 格範圍"
+    name: "<red>拆除魔杖 | <blue>等級 1"
     lore: |-
       <gray>右鍵拆除方塊
       <attr>最大範圍：</attr> %range% 格
       <red>選區僅限單一方塊類型
   breaking-wand-2:
-    name: "<red>拆除魔杖 | <gold>%range% 格範圍"
+    name: "<red>拆除魔杖 | <gold>等級 2"
     lore: |-
       <gray>右鍵拆除方塊
       <attr>最大範圍：</attr> %range% 格
       <red>選區僅限單一方塊類型
   breaking-wand-3:
-    name: "<red>拆除魔杖 | <yellow>%range% 格範圍"
+    name: "<red>拆除魔杖 | <yellow>等級 3"
     lore: |-
       <gray>右鍵拆除方塊
       <attr>最大範圍：</attr> %range% 格
