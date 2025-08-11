@@ -1,7 +1,7 @@
 package com.balugaq.constructionwand.utils;
 
+import com.balugaq.constructionwand.core.managers.ConfigManager;
 import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
-import com.balugaq.constructionwand.implementation.WandConfig;
 import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -38,7 +38,7 @@ public class Debug {
     }
 
     public static void debug(String message) {
-        if (WandConfig.DEBUG) {
+        if (ConfigManager.debug()) {
             log(debugPrefix + message);
         }
     }

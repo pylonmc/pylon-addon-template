@@ -3,8 +3,6 @@ package com.balugaq.constructionwand.core.managers;
 import com.balugaq.constructionwand.api.interfaces.IManager;
 import com.balugaq.constructionwand.api.items.BreakingWand;
 import com.balugaq.constructionwand.api.items.BuildingWand;
-import com.balugaq.constructionwand.api.items.Wand;
-import com.balugaq.constructionwand.implementation.WandConfig;
 import com.balugaq.constructionwand.utils.KeyUtil;
 import io.github.pylonmc.pylon.core.content.guide.PylonGuide;
 import io.github.pylonmc.pylon.core.guide.pages.base.SimpleStaticGuidePage;
@@ -31,40 +29,25 @@ public class WandSetup implements IManager {
 
     public static void registerBuildingWand(
             @NotNull NamespacedKey key,
-            int limitBlocks,
-            boolean blockStrict,
-            boolean opOnly,
             @NotNull Material material,
             @Nullable String... recipe) {
         ItemStack item = ItemStackBuilder.pylonItem(material, key).build();
         if (recipe != null) {
             registerRecipe(key, item, recipe);
         }
-        Wand.setOnLoad(key, instance -> {
-            instance.setLimitBlocks(limitBlocks);
-            instance.setBlockStrict(blockStrict);
-            instance.setOpOnly(opOnly);
-        });
         PylonItem.register(BuildingWand.class, item);
         MAIN.addItem(key);
     }
 
     public static void registerBreakingWand(
             @NotNull NamespacedKey key,
-            int limitBlocks,
-            boolean blockStrict,
-            boolean opOnly,
             @NotNull Material material,
             @Nullable String... recipe) {
         ItemStack item = ItemStackBuilder.pylonItem(material, key).build();
         if (recipe != null) {
             registerRecipe(key, item, recipe);
         }
-        Wand.setOnLoad(key, instance -> {
-            instance.setLimitBlocks(limitBlocks);
-            instance.setBlockStrict(blockStrict);
-            instance.setOpOnly(opOnly);
-        });
+
         PylonItem.register(BreakingWand.class, item);
         MAIN.addItem(key);
     }
@@ -92,9 +75,6 @@ public class WandSetup implements IManager {
 
         registerBuildingWand(
                 key("building-wand-1"),
-                WandConfig.LIMIT_BLOCKS_BUILDING_WAND_1,
-                false,
-                false,
                 Material.STONE_SWORD,
                 "  I",
                 " S ",
@@ -102,9 +82,6 @@ public class WandSetup implements IManager {
         );
         registerBuildingWand(
                 key("building-wand-2"),
-                WandConfig.LIMIT_BLOCKS_BUILDING_WAND_2,
-                false,
-                false,
                 Material.IRON_SWORD,
                 "  G",
                 " S ",
@@ -112,18 +89,12 @@ public class WandSetup implements IManager {
         );
         registerBuildingWand(
                 key("building-wand-3"),
-                WandConfig.LIMIT_BLOCKS_BUILDING_WAND_3,
-                false,
-                true,
                 Material.DIAMOND_SWORD,
                 (String[]) null
         );
 
         registerBuildingWand(
                 key("building-wand-block-strict-1"),
-                WandConfig.LIMIT_BLOCKS_BUILDING_WAND_BLOCK_STRICT_1,
-                true,
-                false,
                 Material.STONE_SWORD,
                 "I  ",
                 " S ",
@@ -132,9 +103,6 @@ public class WandSetup implements IManager {
 
         registerBuildingWand(
                 key("building-wand-block-strict-2"),
-                WandConfig.LIMIT_BLOCKS_BUILDING_WAND_BLOCK_STRICT_2,
-                true,
-                false,
                 Material.IRON_SWORD,
                 "G  ",
                 " S ",
@@ -143,18 +111,12 @@ public class WandSetup implements IManager {
 
         registerBuildingWand(
                 key("building-wand-block-strict-3"),
-                WandConfig.LIMIT_BLOCKS_BUILDING_WAND_BLOCK_STRICT_3,
-                true,
-                true,
                 Material.DIAMOND_SWORD,
                 (String[]) null
         );
 
         registerBreakingWand(
                 key("breaking-wand-1"),
-                WandConfig.LIMIT_BLOCKS_BREAKING_WAND_1,
-                false,
-                false,
                 Material.GOLDEN_SWORD,
                 "OOI",
                 "OSO",
@@ -163,9 +125,6 @@ public class WandSetup implements IManager {
 
         registerBreakingWand(
                 key("breaking-wand-2"),
-                WandConfig.LIMIT_BLOCKS_BREAKING_WAND_2,
-                false,
-                false,
                 Material.GOLDEN_SWORD,
                 "OOG",
                 "OSO",
@@ -174,9 +133,6 @@ public class WandSetup implements IManager {
 
         registerBreakingWand(
                 key("breaking-wand-3"),
-                WandConfig.LIMIT_BLOCKS_BREAKING_WAND_3,
-                false,
-                true,
                 Material.GOLDEN_SWORD,
                 (String[]) null
         );

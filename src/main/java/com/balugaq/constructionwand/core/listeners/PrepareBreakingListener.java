@@ -3,8 +3,8 @@ package com.balugaq.constructionwand.core.listeners;
 import com.balugaq.constructionwand.api.enums.Interaction;
 import com.balugaq.constructionwand.api.events.PrepareBreakingEvent;
 import com.balugaq.constructionwand.api.items.BreakingWand;
+import com.balugaq.constructionwand.core.managers.ConfigManager;
 import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
-import com.balugaq.constructionwand.implementation.WandConfig;
 import com.balugaq.constructionwand.utils.Debug;
 import com.balugaq.constructionwand.utils.PermissionUtil;
 import com.balugaq.constructionwand.utils.WandUtil;
@@ -38,7 +38,7 @@ public class PrepareBreakingListener implements Listener {
 
     @EventHandler
     public void onPrepareBreaking(@NotNull PrepareBreakingEvent event) {
-        if (!WandConfig.DISPLAY_PROJECTION) {
+        if (!ConfigManager.displayProjection()) {
             return;
         }
 

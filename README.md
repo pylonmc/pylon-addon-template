@@ -52,21 +52,6 @@ auto-update: false
 display-projection: true
 ```
 
-### Range settings for various wands
-Server administrators can modify `limit-blocks` to limit the number of blocks players can modify when using wands
-```yml
-limit-blocks:
-  building-wand-1: 9
-  building-wand-2: 64
-  building-wand-3: 4096
-  building-wand-block-strict-1: 9
-  building-wand-block-strict-2: 64
-  building-wand-block-strict-3: 4096
-  breaking-wand-1: 9
-  breaking-wand-2: 64
-  breaking-wand-3: 4096
-```
-
 ## Usage
 
 1. **Crafting Wands**: Craft various wands according to the recipes

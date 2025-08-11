@@ -1,6 +1,5 @@
 package com.balugaq.constructionwand.implementation;
 
-import com.balugaq.constructionwand.core.managers.CommandManager;
 import com.balugaq.constructionwand.core.managers.ConfigManager;
 import com.balugaq.constructionwand.core.managers.DisplayManager;
 import com.balugaq.constructionwand.core.managers.ListenerManager;
@@ -20,7 +19,6 @@ import java.util.Set;
 public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
     @Getter
     private static ConstructionWandPlugin instance;
-    private @Getter CommandManager commandManager;
     private @Getter ConfigManager configManager;
     private @Getter DisplayManager displayManager;
     private @Getter ListenerManager listenerManager;
@@ -57,10 +55,6 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
         listenerManager = new ListenerManager(this);
         listenerManager.setup();
 
-        Debug.log("Loading command manager");
-        commandManager = new CommandManager(this);
-        commandManager.setup();
-
         Debug.log("Registering wands");
         wandSetup = new WandSetup();
         wandSetup.setup();
@@ -78,7 +72,6 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
         wandSetup.shutdown();
         displayManager.shutdown();
         listenerManager.shutdown();
-        commandManager.shutdown();
         Debug.log("Disabled BuildingWand!");
     }
 

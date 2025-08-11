@@ -1,1 +1,1 @@
-rootProject.name = "construction-wand"
+rootProject.name = "ConstructionWand"

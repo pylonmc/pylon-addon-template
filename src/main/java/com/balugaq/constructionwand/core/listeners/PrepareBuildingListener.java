@@ -3,8 +3,8 @@ package com.balugaq.constructionwand.core.listeners;
 import com.balugaq.constructionwand.api.enums.Interaction;
 import com.balugaq.constructionwand.api.events.PrepareBuildingEvent;
 import com.balugaq.constructionwand.api.items.BuildingWand;
+import com.balugaq.constructionwand.core.managers.ConfigManager;
 import com.balugaq.constructionwand.implementation.ConstructionWandPlugin;
-import com.balugaq.constructionwand.implementation.WandConfig;
 import com.balugaq.constructionwand.utils.Debug;
 import com.balugaq.constructionwand.utils.PermissionUtil;
 import com.balugaq.constructionwand.utils.WandUtil;
@@ -33,7 +33,7 @@ public class PrepareBuildingListener implements Listener {
 
     @EventHandler
     public void onPrepareBuilding(@NotNull PrepareBuildingEvent event) {
-        if (!WandConfig.DISPLAY_PROJECTION) {
+        if (!ConfigManager.displayProjection()) {
             return;
         }
 
