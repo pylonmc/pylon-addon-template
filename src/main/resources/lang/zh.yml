@@ -1,0 +1,64 @@
+addon: "建筑魔杖"
+
+item:
+  building-wand-1:
+    name: "<green>建筑魔杖 | <blue>等级 1"
+    lore: |-
+      <gray>右键放置方块
+      <attr>最大范围：</attr> %range%格
+      <green>选区可由任意方块构成
+  building-wand-2:
+    name: "<green>建筑魔杖 | <gold>等级 2"
+    lore: |-
+      <gray>右键放置方块
+      <attr>最大范围：</attr> %range%格
+      <green>选区可由任意方块构成
+  building-wand-3:
+    name: "<green>建筑魔杖 | <yellow>等级 3"
+    lore: |-
+      <gray>右键放置方块
+      <attr>最大范围：</attr> %range%格
+      <green>选区可由任意方块构成
+      <red>仅管理员可用
+  building-wand-block-strict-1:
+    name: "<green>建筑魔杖 | <blue>等级 1"
+    lore: |-
+      <gray>右键放置方块
+      <attr>最大范围：</attr> %range%格
+      <red>选区仅限单一方块类型
+  building-wand-block-strict-2:
+    name: "<green>建筑魔杖 | <gold>等级 2"
+    lore: |-
+      <gray>右键放置方块
+      <attr>最大范围：</attr> %range%格
+      <red>选区仅限单一方块类型
+  building-wand-block-strict-3:
+    name: "<green>建筑魔杖 | <yellow>等级 3"
+    lore: |-
+      <gray>右键放置方块
+      <attr>最大范围：</attr> %range%格
+      <red>选区仅限单一方块类型
+      <red>仅管理员可用
+  breaking-wand-1:
+    name: "<red>破坏魔杖 | <blue>等级 1"
+    lore: |-
+      <gray>右键破坏方块
+      <attr>最大范围：</attr> %range%格
+      <red>选区仅限单一方块类型
+  breaking-wand-2:
+    name: "<red>破坏魔杖 | <gold>等级 2"
+    lore: |-
+      <gray>右键破坏方块
+      <attr>最大范围：</attr> %range%格
+      <red>选区仅限单一方块类型
+  breaking-wand-3:
+    name: "<red>破坏魔杖 | <yellow>等级 3"
+    lore: |-
+      <gray>右键破坏方块
+      <attr>最大范围：</attr> %range%格
+      <red>选区仅限单一方块类型
+      <red>仅管理员可用
+
+guide:
+  page:
+    construction-wand: "建筑魔杖"

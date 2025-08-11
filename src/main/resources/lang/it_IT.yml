@@ -1,0 +1,64 @@
+addon: "Bacchetta da Costruzione"
+
+item:
+  building-wand-1:
+    name: "<green>Bacchetta Costruttiva | <blue>Livello 1"
+    lore: |-
+      <gray>Tasto destro per posizionare blocchi
+      <attr>Portata massima:</attr> %range% blocchi
+      <green>L'area può essere formata da qualsiasi blocco
+  building-wand-2:
+    name: "<green>Bacchetta Costruttiva | <gold>Livello 2"
+    lore: |-
+      <gray>Tasto destro per posizionare blocchi
+      <attr>Portata massima:</attr> %range% blocchi
+      <green>L'area può essere formata da qualsiasi blocco
+  building-wand-3:
+    name: "<green>Bacchetta Costruttiva | <yellow>Livello 3"
+    lore: |-
+      <gray>Tasto destro per posizionare blocchi
+      <attr>Portata massima:</attr> %range% blocchi
+      <green>L'area può essere formata da qualsiasi blocco
+      <red>Solo OP
+  building-wand-block-strict-1:
+    name: "<green>Bacchetta Costruttiva | <blue>Livello 1"
+    lore: |-
+      <gray>Tasto destro per posizionare blocchi
+      <attr>Portata massima:</attr> %range% blocchi
+      <red>L'area deve essere formata da un solo tipo di blocco
+  building-wand-block-strict-2:
+    name: "<green>Bacchetta Costruttiva | <gold>Livello 2"
+    lore: |-
+      <gray>Tasto destro per posizionare blocchi
+      <attr>Portata massima:</attr> %range% blocchi
+      <red>L'area deve essere formata da un solo tipo di blocco
+  building-wand-block-strict-3:
+    name: "<green>Bacchetta Costruttiva | <yellow>Livello 3"
+    lore: |-
+      <gray>Tasto destro per posizionare blocchi
+      <attr>Portata massima:</attr> %range% blocchi
+      <red>L'area deve essere formata da un solo tipo di blocco
+      <red>Solo OP
+  breaking-wand-1:
+    name: "<red>Bacchetta Demolitrice | <blue>Livello 1"
+    lore: |-
+      <gray>Tasto destro per distruggere blocchi
+      <attr>Portata massima:</attr> %range% blocchi
+      <red>L'area deve essere formata da un solo tipo di blocco
+  breaking-wand-2:
+    name: "<red>Bacchetta Demolitrice | <gold>Livello 2"
+    lore: |-
+      <gray>Tasto destro per distruggere blocchi
+      <attr>Portata massima:</attr> %range% blocchi
+      <red>L'area deve essere formata da un solo tipo di blocco
+  breaking-wand-3:
+    name: "<red>Bacchetta Demolitrice | <yellow>Livello 3"
+    lore: |-
+      <gray>Tasto destro per distruggere blocchi
+      <attr>Portata massima:</attr> %range% blocchi
+      <red>L'area deve essere formata da un solo tipo di blocco
+      <red>Solo OP
+
+guide:
+  page:
+    construction-wand: "Bacchetta da Costruzione"

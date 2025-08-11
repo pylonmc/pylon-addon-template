@@ -90,16 +90,25 @@ public class ConstructionWandPlugin extends JavaPlugin implements PylonAddon {
         return Set.of(
                 Locale.ENGLISH,
                 Locale.of("enws"),
+                Locale.CHINESE,
                 Locale.SIMPLIFIED_CHINESE,
                 Locale.TRADITIONAL_CHINESE,
                 Locale.KOREA,
+                Locale.KOREAN,
                 Locale.FRANCE,
+                Locale.FRENCH,
                 Locale.JAPAN,
+                Locale.JAPANESE,
                 Locale.CANADA,
                 Locale.CANADA_FRENCH,
                 Locale.GERMANY,
+                Locale.GERMAN,
                 Locale.ITALIAN,
-                Locale.of("ru")
+                Locale.ITALY,
+                Locale.UK,
+                Locale.US,
+                Locale.of("ru"),
+                Locale.of("cs", "CZ")
         );
     }
 

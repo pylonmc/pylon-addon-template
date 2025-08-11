@@ -1,0 +1,64 @@
+addon: "建築ワンド"
+
+item:
+  building-wand-1:
+    name: "<green>建築ワンド | <blue>レベル 1"
+    lore: |-
+      <gray>右クリックでブロックを設置
+      <attr>最大範囲：</attr> %range%ブロック
+      <green>領域はあらゆるブロックで形成可能
+  building-wand-2:
+    name: "<green>建築ワンド | <gold>レベル 2"
+    lore: |-
+      <gray>右クリックでブロックを設置
+      <attr>最大範囲：</attr> %range%ブロック
+      <green>領域はあらゆるブロックで形成可能
+  building-wand-3:
+    name: "<green>建築ワンド | <yellow>レベル 3"
+    lore: |-
+      <gray>右クリックでブロックを設置
+      <attr>最大範囲：</attr> %range%ブロック
+      <green>領域はあらゆるブロックで形成可能
+      <red>管理者限定
+  building-wand-block-strict-1:
+    name: "<green>建築ワンド | <blue>レベル 1"
+    lore: |-
+      <gray>右クリックでブロックを設置
+      <attr>最大範囲：</attr> %range%ブロック
+      <red>領域は単一種ブロックでのみ形成可能
+  building-wand-block-strict-2:
+    name: "<green>建築ワンド | <gold>レベル 2"
+    lore: |-
+      <gray>右クリックでブロックを設置
+      <attr>最大範囲：</attr> %range%ブロック
+      <red>領域は単一種ブロックでのみ形成可能
+  building-wand-block-strict-3:
+    name: "<green>建築ワンド | <yellow>レベル 3"
+    lore: |-
+      <gray>右クリックでブロックを設置
+      <attr>最大範囲：</attr> %range%ブロック
+      <red>領域は単一種ブロックでのみ形成可能
+      <red>管理者限定
+  breaking-wand-1:
+    name: "<red>破壊の杖 | <blue>レベル 1"
+    lore: |-
+      <gray>右クリックでブロックを破壊
+      <attr>最大範囲：</attr> %range%ブロック
+      <red>領域は単一種ブロックでのみ形成可能
+  breaking-wand-2:
+    name: "<red>破壊の杖 | <gold>レベル 2"
+    lore: |-
+      <gray>右クリックでブロックを破壊
+      <attr>最大範囲：</attr> %range%ブロック
+      <red>領域は単一種ブロックでのみ形成可能
+  breaking-wand-3:
+    name: "<red>破壊の杖 | <yellow>レベル 3"
+    lore: |-
+      <gray>右クリックでブロックを破壊
+      <attr>最大範囲：</attr> %range%ブロック
+      <red>領域は単一種ブロックでのみ形成可能
+      <red>管理者限定
+
+guide:
+  page:
+    construction-wand: "建築ワンド"

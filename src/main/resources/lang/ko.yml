@@ -1,0 +1,64 @@
+addon: "건설 완드"
+
+item:
+  building-wand-1:
+    name: "<green>건설 완드 | <blue>레벨 1"
+    lore: |-
+      <gray>우클릭으로 블록 설치
+      <attr>최대 범위:</attr> %range% 블록
+      <green>영역은 어떤 블록으로든 구성 가능
+  building-wand-2:
+    name: "<green>건설 완드 | <gold>레벨 2"
+    lore: |-
+      <gray>우클릭으로 블록 설치
+      <attr>최대 범위:</attr> %range% 블록
+      <green>영역은 어떤 블록으로든 구성 가능
+  building-wand-3:
+    name: "<green>건설 완드 | <yellow>레벨 3"
+    lore: |-
+      <gray>우클릭으로 블록 설치
+      <attr>최대 범위:</attr> %range% 블록
+      <green>영역은 어떤 블록으로든 구성 가능
+      <red>관리자 전용
+  building-wand-block-strict-1:
+    name: "<green>건설 완드 | <blue>레벨 1"
+    lore: |-
+      <gray>우클릭으로 블록 설치
+      <attr>최대 범위:</attr> %range% 블록
+      <red>영역은 단일 블록 종류로만 구성 가능
+  building-wand-block-strict-2:
+    name: "<green>건설 완드 | <gold>레벨 2"
+    lore: |-
+      <gray>우클릭으로 블록 설치
+      <attr>최대 범위:</attr> %range% 블록
+      <red>영역은 단일 블록 종류로만 구성 가능
+  building-wand-block-strict-3:
+    name: "<green>건설 완드 | <yellow>레벨 3"
+    lore: |-
+      <gray>우클릭으로 블록 설치
+      <attr>최대 범위:</attr> %range% 블록
+      <red>영역은 단일 블록 종류로만 구성 가능
+      <red>관리자 전용
+  breaking-wand-1:
+    name: "<red>파괴 완드 | <blue>레벨 1"
+    lore: |-
+      <gray>우클릭으로 블록 파괴
+      <attr>최대 범위:</attr> %range% 블록
+      <red>영역은 단일 블록 종류로만 구성 가능
+  breaking-wand-2:
+    name: "<red>파괴 완드 | <gold>레벨 2"
+    lore: |-
+      <gray>우클릭으로 블록 파괴
+      <attr>최대 범위:</attr> %range% 블록
+      <red>영역은 단일 블록 종류로만 구성 가능
+  breaking-wand-3:
+    name: "<red>파괴 완드 | <yellow>레벨 3"
+    lore: |-
+      <gray>우클릭으로 블록 파괴
+      <attr>최대 범위:</attr> %range% 블록
+      <red>영역은 단일 블록 종류로만 구성 가능
+      <red>관리자 전용
+
+guide:
+  page:
+    construction-wand: "건설 완드"
