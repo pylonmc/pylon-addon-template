@@ -307,7 +307,7 @@ public class WandUtil {
                 }
                 block.getState().update(true, true);
             }
-        }, 1);
+        }, 2);
 
         if (player.getGameMode() == GameMode.CREATIVE) {
             return;
@@ -415,7 +415,7 @@ public class WandUtil {
                 BlockState state = block.getState();
                 state.update(true, true);
             }
-        }, 1);
+        }, 2);
     }
 
     public static boolean isMaterialDisabledToBreak(@NotNull Material material) {

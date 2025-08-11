@@ -67,3 +67,7 @@ tasks.runServer {
     maxHeapSize = "4G"
     minecraftVersion("1.21.4")
 }
+
+tasks.build {
+    dependsOn(tasks.shadowJar)
+}

@@ -73,12 +73,8 @@ public class Debug {
         player.sendMessage("[" + plugin.getLogger().getName() + "]" + message);
     }
 
-    public static void stackTraceManually() {
-        try {
-            throw new Error();
-        } catch (Throwable e) {
-            Debug.log(e);
-        }
+    public static void dumpStack() {
+        Thread.dumpStack();
     }
 
     public static void log(Object @NotNull ... object) {

@@ -1,3 +1,4 @@
 limit-blocks: 4096
 block-strict: true
 op-only: true
+cooldown: 100 # ms

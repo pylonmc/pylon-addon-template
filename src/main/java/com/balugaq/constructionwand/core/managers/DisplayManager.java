@@ -129,7 +129,7 @@ public class DisplayManager implements IManager {
                 }
             }
 
-        }, 1, 2);
+        }, 1, 1);
     }
 
     public void startClearDisplaysTask() {
@@ -150,7 +150,7 @@ public class DisplayManager implements IManager {
                     }
                 });
             }
-        }, 1, 20 * 60 * 5);
+        }, 1, 20 * 60 * 5); // 5 minutes
     }
 
     public void registerDisplayGroup(UUID uuid, DisplayGroup group) {
