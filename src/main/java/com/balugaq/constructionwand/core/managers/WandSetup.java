@@ -8,6 +8,7 @@ import com.balugaq.constructionwand.utils.KeyUtil;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import io.github.pylonmc.pylon.core.content.guide.PylonGuide;
 import io.github.pylonmc.pylon.core.guide.pages.base.SimpleStaticGuidePage;
+import io.github.pylonmc.pylon.core.item.PylonItem;
 import io.github.pylonmc.pylon.core.item.builder.ItemStackBuilder;
 import io.github.pylonmc.pylon.core.recipe.RecipeType;
 import org.bukkit.Material;
@@ -17,6 +18,8 @@ import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.recipe.CraftingBookCategory;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Map;
 
 public class WandSetup implements IManager {
     public static SimpleStaticGuidePage MAIN;
@@ -39,6 +42,7 @@ public class WandSetup implements IManager {
         if (recipe != null) {
             registerRecipe(key, item, recipe);
         }
+        PylonItem.register(BuildingWand.class, item);
         return new BuildingWand(
                 item,
                 limitBlocks,
@@ -60,6 +64,7 @@ public class WandSetup implements IManager {
         if (recipe != null) {
             registerRecipe(key, item, recipe);
         }
+        PylonItem.register(BreakingWand.class, item);
         return new BreakingWand(
                 item,
                 limitBlocks,
@@ -73,11 +78,13 @@ public class WandSetup implements IManager {
             @NotNull ItemStack item,
             @NotNull String... recipe) {
         ShapedRecipe shapedRecipe = new ShapedRecipe(key, item)
-                .shape(recipe)
-                .setIngredient('S', Material.STICK)
-                .setIngredient('I', Material.IRON_INGOT)
-                .setIngredient('G', Material.GOLD_INGOT)
-                .setIngredient('O', Material.OBSIDIAN);
+                .shape(recipe);
+        Map<Character, ItemStack> m = shapedRecipe.getIngredientMap();
+        if (m.containsKey('S')) shapedRecipe.setIngredient('S', Material.STICK);
+        if (m.containsKey('I')) shapedRecipe.setIngredient('I', Material.IRON_INGOT);
+        if (m.containsKey('G')) shapedRecipe.setIngredient('G', Material.GOLD_INGOT);
+        if (m.containsKey('O')) shapedRecipe.setIngredient('O', Material.OBSIDIAN);
+
         shapedRecipe.setCategory(CraftingBookCategory.BUILDING);
         RecipeType.VANILLA_SHAPED.addRecipe(shapedRecipe);
     }

@@ -7,7 +7,7 @@ import lombok.experimental.UtilityClass;
 public class WandConfig {
     private static final Config config = new Config(ConstructionWandPlugin.getInstance(), "config.yml");
 
-    public static final boolean AUTO_UPDATE = config.getOrThrow("auto-update", Boolean.class);
+    public static final boolean AUTO_UPDATE = config.get("auto-update", Boolean.class, false);
     public static final boolean DISPLAY_PROJECTION = config.getOrThrow("display-projection", Boolean.class);
     public static final boolean DEBUG = config.getOrThrow("debug", Boolean.class);
     public static final int LIMIT_BLOCKS_BUILDING_WAND_1 = config.getOrThrow("limit-blocks.building-wand-1", Integer.class);

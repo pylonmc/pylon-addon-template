@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 @Getter
-public class BreakingWand extends PylonItem implements Wand, PylonInteractor {
+public abstract class BreakingWand extends PylonItem implements Wand, PylonInteractor {
     private final int limitBlocks;
     private final boolean blockStrict;
     private final boolean opOnly;

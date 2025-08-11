@@ -27,7 +27,8 @@ val coreVersion = project.properties["pylon-core.version"] as String
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("io.github.pylonmc:pylon-core:$coreVersion")
-    compileOnly("org.metamechanists:DisplayModelLib:2")
+    implementation("org.metamechanists:DisplayModelLib:35")
+    shadow("org.metamechanists:DisplayModelLib:35")
 }
 
 idea {
@@ -42,11 +43,9 @@ java {
 }
 
 tasks.shadowJar {
-    mergeServiceFiles()
+    relocate("org.metamechanists", "${project.group}.shaded.org.metamechanists")
 
-    fun doRelocate(lib: String) {
-        relocate(lib, "$group.shadowlibs.$lib")
-    }
+    mergeServiceFiles()
 
     archiveBaseName = project.name
     archiveClassifier = null

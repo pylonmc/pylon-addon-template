@@ -8,6 +8,7 @@ import com.balugaq.constructionwand.implementation.WandConfig;
 import com.balugaq.constructionwand.utils.Debug;
 import com.balugaq.constructionwand.utils.PermissionUtil;
 import com.balugaq.constructionwand.utils.WandUtil;
+import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -19,17 +20,16 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.jetbrains.annotations.NotNull;
 import org.metamechanists.displaymodellib.models.components.ModelCuboid;
-import org.metamechanists.displaymodellib.sefilib.entity.display.DisplayGroup;
 
 import java.util.Set;
 import java.util.UUID;
 
 public class PrepareBuildingListener implements Listener {
     private static final ModelCuboid blockBase = new ModelCuboid()
-            .size(0.6F, 0.6F, 0.6F);
+            .scale(0.6F, 0.6F, 0.6F);
     private static final ModelCuboid border = new ModelCuboid()
             .material(Material.LIGHT_GRAY_STAINED_GLASS)
-            .size(0.7F, 0.7F, 0.7F);
+            .scale(0.7F, 0.7F, 0.7F);
 
     @EventHandler
     public void onPrepareBuilding(@NotNull PrepareBuildingEvent event) {

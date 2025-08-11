@@ -6,6 +6,7 @@ import com.balugaq.constructionwand.api.interfaces.IManager;
 import com.balugaq.constructionwand.api.items.BreakingWand;
 import com.balugaq.constructionwand.api.items.BuildingWand;
 import com.balugaq.constructionwand.utils.WandUtil;
+import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import io.github.pylonmc.pylon.core.item.PylonItem;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -16,7 +17,6 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.metamechanists.displaymodellib.sefilib.entity.display.DisplayGroup;
 
 import java.util.HashMap;
 import java.util.HashSet;

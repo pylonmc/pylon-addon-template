@@ -8,6 +8,7 @@ import com.balugaq.constructionwand.implementation.WandConfig;
 import com.balugaq.constructionwand.utils.Debug;
 import com.balugaq.constructionwand.utils.PermissionUtil;
 import com.balugaq.constructionwand.utils.WandUtil;
+import dev.sefiraat.sefilib.entity.display.DisplayGroup;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -21,7 +22,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 import org.metamechanists.displaymodellib.models.components.ModelCuboid;
-import org.metamechanists.displaymodellib.sefilib.entity.display.DisplayGroup;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -34,7 +34,7 @@ import java.util.UUID;
 public class PrepareBreakingListener implements Listener {
     private static final ModelCuboid border = new ModelCuboid()
             .material(Material.RED_STAINED_GLASS)
-            .size(0.9F, 0.9F, 0.9F);
+            .scale(0.9F, 0.9F, 0.9F);
 
     @EventHandler
     public void onPrepareBreaking(@NotNull PrepareBreakingEvent event) {
