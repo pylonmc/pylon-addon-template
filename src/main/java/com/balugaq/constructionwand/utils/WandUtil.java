@@ -282,7 +282,7 @@ public class WandUtil {
                         block.getRelative(lookingFacing.getOppositeFace()),
                         itemInHand,
                         player,
-                        PermissionUtil.hasPermission(player, location, Interaction.PLACE_BLOCK),
+                        true, // Why needs a `canBuild` param before check permission
                         EquipmentSlot.HAND
                 );
                 Bukkit.getPluginManager().callEvent(blockPlaceEvent);
