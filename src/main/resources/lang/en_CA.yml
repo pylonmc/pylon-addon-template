@@ -2,57 +2,57 @@ addon: "Construction Wand"
 
 item:
   building-wand-1:
-    name: "<green>Build Staff | <blue>%range% Blocks"
+    name: "<green>Build Wand | <blue>%range% Blocks"
     lore: |-
       <gray>Right-click to place blocks
       <attr>Max Range:</attr> %range% Blocks
       <green>Selected area can be formed by any blocks
   building-wand-2:
-    name: "<green>Build Staff | <gold>%range% Blocks"
+    name: "<green>Build Wand | <gold>%range% Blocks"
     lore: |-
       <gray>Right-click to place blocks
       <attr>Max Range:</attr> %range% Blocks
       <green>Selected area can be formed by any blocks
   building-wand-3:
-    name: "<green>Build Staff | <yellow>%range% Blocks"
+    name: "<green>Build Wand | <yellow>%range% Blocks"
     lore: |-
       <gray>Right-click to place blocks
       <attr>Max Range:</attr> %range% Blocks
       <green>Selected area can be formed by any blocks
       <red>OP only
   building-wand-block-strict-1:
-    name: "<green>Build Staff | <blue>%range% Blocks"
+    name: "<green>Build Wand | <blue>%range% Blocks"
     lore: |-
       <gray>Right-click to place blocks
       <attr>Max Range:</attr> %range% Blocks
       <red>Selected area can be formed only by one type of block
   building-wand-block-strict-2:
-    name: "<green>Build Staff | <gold>%range% Blocks"
+    name: "<green>Build Wand | <gold>%range% Blocks"
     lore: |-
       <gray>Right-click to place blocks
       <attr>Max Range:</attr> %range% Blocks
       <red>Selected area can be formed only by one type of block
   building-wand-block-strict-3:
-    name: "<green>Build Staff | <yellow>%range% Blocks"
+    name: "<green>Build Wand | <yellow>%range% Blocks"
     lore: |-
       <gray>Right-click to place blocks
       <attr>Max Range:</attr> %range% Blocks
       <red>Selected area can be formed only by one type of block
       <red>OP only
   breaking-wand-1:
-    name: "<red>Break Staff | <blue>%range% Blocks"
+    name: "<red>Break Wand | <blue>%range% Blocks"
     lore: |-
       <gray>Right-click to break blocks
       <attr>Max Range:</attr> %range% Blocks
       <red>Selected area can be formed only by one type of block
   breaking-wand-2:
-    name: "<red>Break Staff | <gold>%range% Blocks"
+    name: "<red>Break Wand | <gold>%range% Blocks"
     lore: |-
       <gray>Right-click to break blocks
       <attr>Max Range:</attr> %range% Blocks
       <red>Selected area can be formed only by one type of block
   breaking-wand-3:
-    name: "<red>Break Staff | <yellow>%range% Blocks"
+    name: "<red>Break Wand | <yellow>%range% Blocks"
     lore: |-
       <gray>Right-click to break blocks
       <attr>Max Range:</attr> %range% Blocks

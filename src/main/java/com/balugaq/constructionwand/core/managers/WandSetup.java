@@ -3,9 +3,9 @@ package com.balugaq.constructionwand.core.managers;
 import com.balugaq.constructionwand.api.interfaces.IManager;
 import com.balugaq.constructionwand.api.items.BreakingWand;
 import com.balugaq.constructionwand.api.items.BuildingWand;
+import com.balugaq.constructionwand.api.items.Wand;
 import com.balugaq.constructionwand.implementation.WandConfig;
 import com.balugaq.constructionwand.utils.KeyUtil;
-import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import io.github.pylonmc.pylon.core.content.guide.PylonGuide;
 import io.github.pylonmc.pylon.core.guide.pages.base.SimpleStaticGuidePage;
 import io.github.pylonmc.pylon.core.item.PylonItem;
@@ -29,9 +29,7 @@ public class WandSetup implements IManager {
         return KeyUtil.newKey(key);
     }
 
-    @CanIgnoreReturnValue
-    @NotNull
-    public static BuildingWand registerBuildingWand(
+    public static void registerBuildingWand(
             @NotNull NamespacedKey key,
             int limitBlocks,
             boolean blockStrict,
@@ -42,18 +40,16 @@ public class WandSetup implements IManager {
         if (recipe != null) {
             registerRecipe(key, item, recipe);
         }
+        Wand.setOnLoad(key, instance -> {
+            instance.setLimitBlocks(limitBlocks);
+            instance.setBlockStrict(blockStrict);
+            instance.setOpOnly(opOnly);
+        });
         PylonItem.register(BuildingWand.class, item);
-        return new BuildingWand(
-                item,
-                limitBlocks,
-                blockStrict,
-                opOnly
-        );
+        MAIN.addItem(key);
     }
 
-    @CanIgnoreReturnValue
-    @NotNull
-    public static BreakingWand registerBreakingWand(
+    public static void registerBreakingWand(
             @NotNull NamespacedKey key,
             int limitBlocks,
             boolean blockStrict,
@@ -64,13 +60,13 @@ public class WandSetup implements IManager {
         if (recipe != null) {
             registerRecipe(key, item, recipe);
         }
+        Wand.setOnLoad(key, instance -> {
+            instance.setLimitBlocks(limitBlocks);
+            instance.setBlockStrict(blockStrict);
+            instance.setOpOnly(opOnly);
+        });
         PylonItem.register(BreakingWand.class, item);
-        return new BreakingWand(
-                item,
-                limitBlocks,
-                blockStrict,
-                opOnly
-        );
+        MAIN.addItem(key);
     }
 
     public static void registerRecipe(
@@ -129,7 +125,7 @@ public class WandSetup implements IManager {
                 true,
                 false,
                 Material.STONE_SWORD,
-                "I",
+                "I  ",
                 " S ",
                 "  S"
         );
@@ -140,7 +136,7 @@ public class WandSetup implements IManager {
                 true,
                 false,
                 Material.IRON_SWORD,
-                "G",
+                "G  ",
                 " S ",
                 "  S"
         );

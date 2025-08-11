@@ -40,19 +40,19 @@ item:
       <red>Thy plot must bear stones of selfsame kin
       <red>For Crown'd Masters only
   breaking-wand-1:
-    name: "<red>Demolisher's Staff | <blue>%range% Stones"
+    name: "<red>Demolisher's Wand | <blue>%range% Stones"
     lore: |-
       <gray>Right-clicketh to shatter stones
       <attr>Farthest Reach:</attr> %range% Stones
       <red>Thy plot must bear stones of selfsame kin
   breaking-wand-2:
-    name: "<red>Demolisher's Staff | <gold>%range% Stones"
+    name: "<red>Demolisher's Wand | <gold>%range% Stones"
     lore: |-
       <gray>Right-clicketh to shatter stones
       <attr>Farthest Reach:</attr> %range% Stones
       <red>Thy plot must bear stones of selfsame kin
   breaking-wand-3:
-    name: "<red>Demolisher's Staff | <yellow>%range% Stones"
+    name: "<red>Demolisher's Wand | <yellow>%range% Stones"
     lore: |-
       <gray>Right-clicketh to shatter stones
       <attr>Farthest Reach:</attr> %range% Stones
