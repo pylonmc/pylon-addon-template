@@ -1,6 +1,7 @@
 package com.balugaq.constructionwand.utils;
 
 import com.balugaq.constructionwand.api.enums.Interaction;
+import com.balugaq.constructionwand.api.providers.ItemProvider;
 import com.destroystokyo.paper.MaterialTags;
 import org.bukkit.Axis;
 import org.bukkit.Bukkit;
@@ -234,27 +235,7 @@ public class WandUtil {
             return;
         }
 
-        int playerHas = 0;
-        if (player.getGameMode() == GameMode.CREATIVE) {
-            playerHas = 4096;
-        } else {
-            ItemStack target = new ItemStack(material, 1);
-            for (ItemStack itemStack : player.getInventory().getContents()) {
-                if (itemStack == null || itemStack.getType() == Material.AIR) {
-                    continue;
-                }
-
-                if (itemStack.isSimilar(target)) {
-                    int count = itemStack.getAmount();
-                    playerHas += count;
-                }
-
-                if (playerHas >= limitBlocks) {
-                    break;
-                }
-            }
-        }
-
+        int playerHas = ItemProvider.getItemAmount(player, material, limitBlocks);
         if (playerHas <= 0) {
             return;
         }
@@ -313,9 +294,7 @@ public class WandUtil {
             return;
         }
 
-        if (consumed > 0) {
-            player.getInventory().removeItem(new ItemStack(material, consumed));
-        }
+        ItemProvider.consumeItems(player, material, consumed);
     }
 
     public static void breakBlocks(@NotNull Plugin plugin, @NotNull PlayerInteractEvent event, boolean disabled, int limitBlocks, boolean blockStrict, boolean opOnly) {
